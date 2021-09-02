@@ -12,16 +12,6 @@ dependencies:
 
 ```
 
-
-# What is the ARMOD SDK?
-In short, [ARMOD's](https://docs.phantomsxr.com/) solution is an AR experience platform solution similar to Snapchat ([Lens Studio](https://lensstudio.snapchat.com/)) and Facebook ([SparkAR](https://sparkar.facebook.com/ar-studio/))!
-
-
-AR-MOD is a derivative framework based on Unity ARFoundation. MOD in AR-MOD means Modification in English, meaning: modification and module. This concept is widely used in games, corresponding to modifiable video games. Famous games such as Warcraft, Red Alert, Half-Life, CS, Victory Day and more! 
-
-
-We transplant the MOD concept into AR technology to give users more freedom to create the AR creative interactive experience content they need! In this process, users do not need to worry about AR-SDK algorithm and code implementation, but only need to devote themselves to the production of AR creative interactive experience content. With only a small amount of code, you can use all the capabilities of AR-MOD on the APP to create greater commercial value.
-
 ## Getting Started
 
 1. Install this plugin to your flutter project. If you do not know how to install the `Flutter Package` you can [click here](https://flutter.dev/docs/development/packages-and-plugins/using-packages) to see the document.
