@@ -22,7 +22,7 @@ We transplant the MOD concept into AR technology to give users more freedom to c
 
 3. Go to the location of your `FLUTTER SDK PATH/.pub-cache/hosted/pub.dartlang.org/flutter_armod_widget-0.0.3/` folder, then paste the `libs` to `android` platform folder.
 
-4. Create and write your app token to [PhantomsXRConfig.dart](lib/config/phantomsxrConfig.dart)
+4. Create and write your app token to [PhantomsXRConfig.dart](../lib/config/phantomsxrConfig.dart)
 
 5. And write a new screen for AR-MOD
 
