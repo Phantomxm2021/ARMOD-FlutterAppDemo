@@ -1,29 +1,63 @@
-# ARMOD-FlutterAppDemo
+# ARMOD-Flutter App Demo
 This repository is used to demonstrate how the AR-MOD SDK can be used in Flutter. 
-
-> The AR-MOD SDK currently provides a plug-in package for Flutter. You can install it through `flutter_armod_widget: ^0.0.3` in your flutter project `pubspec.yaml` !
-```yaml
-# Other config
-dependencies:
-  flutter:
-    sdk: flutter
-  flutter_armod_widget: ^0.0.3
-# Other config
-
-```
 
 ## Getting Started
 
+
 1. Install this plugin to your flutter project. If you do not know how to install the `Flutter Package` you can [click here](https://flutter.dev/docs/development/packages-and-plugins/using-packages) to see the document.
+
+    <details>
+      <summary>Install Guid</summary>
+
+      The AR-MOD SDK currently provides a plug-in package for Flutter. You can install it through `flutter_armod_widget: ^0.0.3` in your flutter project `pubspec.yaml` !
+
+      ```yaml
+      # Other config
+      dependencies:
+        flutter:
+          sdk: flutter
+        flutter_armod_widget: ^0.0.3
+      # Other config
+
+      ```
+    
+    </details>
+
 
 2. Go to [PhantomsXR](https://github.com/Phantomxm2021/ARMOD-Framework) github respository. Download and Unzip it.
 
-3. Go to the location of your `FLUTTER SDK PATH/.pub-cache/hosted/pub.dartlang.org/flutter_armod_widget-0.0.3/` folder, then paste the `libs` to `android` platform folder.
+3. Choose iOS or Android platform from the options below to set.
 
-4. Create and write your app token to [PhantomsXRConfig.dart](main/lib/src/config/phantomsxrConfig.dart)
+    <details>
+    <summary>Android Setup</summary>
 
-5. And write a new screen for AR-MOD
+      1. Go to the location of your `FLUTTER SDK PATH/.pub-cache/hosted/pub.dartlang.org/flutter_armod_widget-0.0.3/` folder, then paste the `libs` to `android` platform folder.
+      
+      2. Run `Flutter pub get` command in your termial.
 
+    </details>
+
+
+
+    <details>
+    <summary>iOS Setup</summary>
+
+      1. Create the `ThirdParties` folder to your XCode project.
+
+      2. Import `UnityFramework.framework` to the folder(ThridParties). 
+      
+      3. Add the Framewrok to Xcode -> Targets -> Your APP -> General -> Franework,Libraries, and Embedded Content area, And set the Embed mode to Embed & Sign.
+
+      4. Run `Pod install` command in your termial.
+
+    </details>
+
+
+4. Create and write your app token to [PhantomsXRConfig.dart](main/lib/src/config/phantomsxrConfig.dart).
+
+5. And write a new screen for AR-MOD.
+
+## Example Code
 ```dart
 import 'dart:async';
 
