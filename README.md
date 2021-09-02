@@ -1,9 +1,17 @@
 # ARMOD-FlutterAppDemo
-Flutter AR-MOD widget for embedding AR features in flutter.
+This repository is used to demonstrate how the AR-MOD SDK can be used in Flutter. 
 
-# flutter_armod_widget
+> The AR-MOD SDK currently provides a plug-in package for Flutter. You can install it through `flutter_armod_widget: ^0.0.3` in your flutter project `pubspec.yaml` !
+```yaml
+# Other config
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_armod_widget: ^0.0.3
+# Other config
 
-Flutter AR-MOD widget for embedding AR features in flutter.
+```
+
 
 # What is the ARMOD SDK?
 In short, [ARMOD's](https://docs.phantomsxr.com/) solution is an AR experience platform solution similar to Snapchat ([Lens Studio](https://lensstudio.snapchat.com/)) and Facebook ([SparkAR](https://sparkar.facebook.com/ar-studio/))!
