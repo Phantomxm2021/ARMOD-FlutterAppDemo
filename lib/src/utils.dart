@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'config/phantomsxrConfig.dart';
+
 class Utils {
   static final String baseAPIGatewayUrl = "https://weacw.com/api/v1/";
   static Future<dynamic> queryPhantomCloud(
@@ -13,7 +15,7 @@ class Utils {
         headers: <String, String>{
           'Content-Type': 'application/x-www-form-urlencoded',
           'authorization':
-              'Token eyJhbGciOiJIUzUxMiIsImlhdCI6MTYxODc2OTkzMSwiZXhwIjoxMDI1ODc2OTkzMX0.eyJwYWNrYWdlaWQiOiJjb20ucGhhbnRvbXMuYXJtb2QiLCJ1c2VyX3VpZCI6MTAxMjQ1MTU0M30.TZv-LKoNvQqnvpXKVDGhY7YNu1OFnazLBODbgdZydRsmyHD4z7Nd7kmi7Hbt4bLQndRcgGE_9IRvVjE64foCkQ',
+              'Token ${PhantomsXRConfig.AppToken}',
         },
         body: body);
 

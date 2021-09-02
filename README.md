@@ -22,7 +22,9 @@ We transplant the MOD concept into AR technology to give users more freedom to c
 
 3. Go to the location of your `FLUTTER SDK PATH/.pub-cache/hosted/pub.dartlang.org/flutter_armod_widget-0.0.3/` folder, then paste the `libs` to `android` platform folder.
 
-4. And write a new screen for AR-MOD
+4. Create and write your app token to [PhantomsXRConfig.dart](lib/config/phantomsxrConfig.dart)
+
+5. And write a new screen for AR-MOD
 
 ```dart
 import 'dart:async';
@@ -34,6 +36,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_armod_widget/flutter_armod_widget.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+import '../config/phantomsxrConfig.dart';
+
 class ARView extends StatefulWidget {
   ARView({Key? key}) : super(key: key);
 
@@ -42,13 +46,8 @@ class ARView extends StatefulWidget {
 }
 
 class ARViewState extends State<ARView> {
-  static final GlobalKey<ScaffoldState> _scaffoldKey =
-      GlobalKey<ScaffoldState>();
-  Timer? _timer;
   late ARMODWidgetController _armodWidgetController;
-  double _sliderValue = 0.0;
   bool _onWillPop = false;
-  bool _Poping = false;
   @override
   void initState() {
     super.initState();
@@ -175,7 +174,7 @@ class ARViewState extends State<ARView> {
     print("-------onARMODLaunch---------");
     print("----------------------------");
     _armodWidgetController.initARMOD(
-        '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://weacw.com/api/v1/getarexperience","token":"eyJhbGciOiJIUzUxMiIsImlhdCI6MTYxODgyMDQ0NSwiZXhwIjoxMDI1ODgyMDQ0NX0.eyJwYWNrYWdlaWQiOiJjb20uY2VsbHN0dWRpby5hcmxpYnJhcnkiLCJ1c2VyX3VpZCI6LTF9.tUEyJ32Z0QHPrGoYEs51d_2q6LnXAQTyinwX4p7Zi192mGJDDZ4whwNX_E-f8rITuXA39tK5u6UVq7A_8D7c7w","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
+        '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://weacw.com/api/v1/getarexperience","token":"${PhantomsXRConfig.AppToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
 
     Future.delayed(Duration(milliseconds: 125),
         () => {_armodWidgetController.fetchProject(AppData.ar_experience_uid)});
@@ -228,6 +227,4 @@ class ARViewState extends State<ARView> {
 
   void onRecognitionComplete() {}
 }
-
-
 ```
