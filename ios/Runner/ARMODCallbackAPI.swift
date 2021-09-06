@@ -1,32 +1,25 @@
 //
 //  ARMODCallbackAPI.swift
-//  Runner
+//  ARMOD
 //
-//  Created by Phantomsxr on 2021/9/2.
+//  Created by phantomsxr on 2021/9/2.
+//  Copyright © 2020 phantomsxr.com. All rights reserved.
 //
-
 
 import Foundation
 import flutter_armod_widget
 
-class ARMODCallbackAPI: UIResponder,NativeCallsProtocol  {
-    func tryAcquireInformation(_ opTag: String!,  callBackFuncP callback: TryAcquireInformationCallBackFuncP!) {
+@objc public class ARMODCallbackAPI: UIResponder,NativeCallsProtocol  {
+    public func tryAcquireInformation(_ opTag: String!,  callBackFuncP callback: TryAcquireInformationCallBackFuncP!) {
         let playload: Dictionary<String, Any> = [
             "opTag": opTag!
         ]
         
         globalChannel?.invokeMethod("events#onTryAcquireInformation", arguments: playload, result:  {result in
-            
-            
-            self.resultStr = result as? String ?? ""
-            self.gotResult = true
-            callback(self.resultStr.cString(using: .utf8))
+            callback((result as? String ?? "").cString(using: .utf8))
         })
     }
-    
-    
-    var gotResult:Bool = false;
-    var resultStr:String = ""
+ 
     
     public func throwException(_ message: String!, errorCode code: Int32) {
         let playload: Dictionary<String, Any> = [
@@ -97,38 +90,5 @@ class ARMODCallbackAPI: UIResponder,NativeCallsProtocol  {
             "presetSize":presetSize
         ]
         globalChannel?.invokeMethod("events#onPackageSizeMoreThanPresetSize", arguments: playload)
-    }
-    
-    private func test(opTag:String){
-        let playload: Dictionary<String, Any> = [
-            "opTag": opTag
-        ]
-       
-        globalChannel?.invokeMethod("events#onTryAcquireInformation", arguments: playload, result:  {result in
-            self.resultStr = result as? String ?? ""
-            self.gotResult = true
-        })
-    }
-    
-    
-    func tryAcquireInfomationAsync(
-        _ completion: @escaping (String?, Error?) -> Void
-    )
-    {
-        DispatchQueue.global().async {
-            do {
-                self.test(opTag: "123")
-                while !self.gotResult{
-                    print(self.gotResult)
-                }
-                DispatchQueue.main.async {
-                    completion(self.resultStr, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-            }
-        }
     }
 }
