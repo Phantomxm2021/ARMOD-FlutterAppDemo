@@ -179,6 +179,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
         AppData.ar_experience_uid =
             generalExperience.arexperience_uid.toString();
         Navigator.of(context).pushNamed("/ar_view");
+        luanched_ar = false;
       },
       child: Container(
         width: 60,

@@ -63,9 +63,7 @@ class ARViewState extends State<ARView> {
     return new WillPopScope(
       onWillPop: _onBackPressed,
       child: new Scaffold(
-        body: SafeArea(
-            top: true,
-            child: Stack(
+        body: Stack(
               children: [
                 ARMODWidget(
                   onARMODCreated: onARMODCreate,
@@ -88,7 +86,7 @@ class ARViewState extends State<ARView> {
                 ),
                 _appBar()
               ],
-            )),
+            ),
       ),
     );
   }

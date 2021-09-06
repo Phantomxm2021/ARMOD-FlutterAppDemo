@@ -48,14 +48,79 @@ This repository is used to demonstrate how the AR-MOD SDK can be used in Flutter
       
       3. Add the Framewrok to Xcode -> Targets -> Your APP -> General -> Franework,Libraries, and Embedded Content area, And set the Embed mode to Embed & Sign.
 
-      4. Run `Pod install` command in your termial.
+      4. Execute the `cd iOS` command and run `Pod install` command in your termial.
 
+      5. Double-Click to open the `Runner.xcworkspace` file. It will be launch the XCode app.
+
+      6. If you're using Swift, open the *ios/Runner/AppDelegate.swift* file and change the following:
+
+          ```diff
+              import UIKit
+              import Flutter
+          +    import flutter_armod_widget
+
+              @UIApplicationMain
+              @objc class AppDelegate: FlutterAppDelegate {
+                  override func application(
+                      _ application: UIApplication,
+                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+                  ) -> Bool {
+          +            InitARMODIntegrationWithOptions(argc: CommandLine.argc, argv: CommandLine.unsafeArgv, launchOptions)
+
+                      GeneratedPluginRegistrant.register(with: self)
+                      return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+                  }
+              }
+          ```
+
+          > If you're using Objective-C, open the *ios/Runner/main.m* file and change the following:
+          ```diff
+          +    #import "flutter_armod_widget.swift.h"
+
+              int main(int argc, char * argv[]) {
+                    @autoreleasepool {
+          +             InitARMODIntegration(argc, argv);
+                        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+                    }
+              }
+          ```
+
+      7. Edit the info.plist
+
+          ```diff
+              <dict>
+          +        <key>io.flutter.embedded_views_preview</key>
+          +        <string>YES</string>
+              </dict>
+          ```
+
+          ```diff
+              <dict>
+          +        <key>Privacy - Camera Usage Description</key>
+          +        <string>$(PRODUCT_NAME) uses Cameras</string>
+              </dict>
+          ```
+
+          ```diff
+              <dict>
+          +       <key>NSBonjourServices</key>
+          +       <string>_dartobservatory._tcp</string>
+              </dict>
+          ```
     </details>
 
 
 4. Create and write your app token to [PhantomsXRConfig.dart](main/lib/src/config/phantomsxrConfig.dart).
 
 5. And write a new screen for AR-MOD.
+
+# Common mistakes
+## iOS Error
+- Q: ios/Flutter/Generated.xcconfig must exist.
+  - A: Execute `Flutter run` command to generate the `Generated.xcconfig` file
+
+- Q: CocoaPods could not find compatible versions for pod "flutter_armod_widget"
+  - A: Find and replace the `platform :ios, '9.0'`  to `platform :ios, '11.0'` in the Podfile. Then Execute `Pod update` command to refresh your project.
 
 ## Example Code
 ```dart

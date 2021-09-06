@@ -18,7 +18,6 @@ class Utils {
               'Token ${PhantomsXRConfig.AppToken}',
         },
         body: body);
-
     if (response.statusCode == 200) {
       dynamic responseData = json.decode(response.body);
       return responseData;
