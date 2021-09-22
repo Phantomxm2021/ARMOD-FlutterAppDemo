@@ -110,7 +110,8 @@ class ARViewState extends State<ARView> {
     Widget okButton = TextButton(
       child: Text("OK"),
       onPressed: () {
-        Navigator.of(context).pop();
+        //Navigator.of(context).pop();
+        _onBackPressed();
       },
     );
 
