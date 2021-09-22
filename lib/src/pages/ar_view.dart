@@ -19,6 +19,7 @@ class ARView extends StatefulWidget {
 class ARViewState extends State<ARView> {
   late ARMODWidgetController _armodWidgetController;
   bool _onWillPop = false;
+  bool _isClosedByBack = false;
   @override
   void initState() {
     super.initState();
@@ -64,29 +65,28 @@ class ARViewState extends State<ARView> {
       onWillPop: _onBackPressed,
       child: new Scaffold(
         body: Stack(
-              children: [
-                ARMODWidget(
-                  onARMODCreated: onARMODCreate,
-                  onARMODExit: onARMODExit,
-                  onARMODLaunch: onARMODLaunch,
-                  onAddLoadingOverlay: onAddLoadingOverlay,
-                  onDeviceNotSupport: onDeviceNotSupport,
-                  onNeedInstallARCoreService: onNeedInstallARCoreService,
-                  onOpenBuiltInBrowser: onOpenBuiltInBrowser,
-                  onPackageSizeMoreThanPresetSize:
-                      onPackageSizeMoreThanPresetSize,
-                  onRecognitionComplete: onRecognitionComplete,
-                  onRecognitionStart: onRecognitionStart,
-                  onRemoveLoadingOverlay: onRemoveLoadingOverlay,
-                  onSdkInitialized: onSdkInitialized,
-                  onThrowException: onThrowException,
-                  onTryAcquireInformation: onTryAcquireInformation,
-                  onUpdateLoadingProgress: onUpdateLoadingProgress,
-                  fullscreen: true,
-                ),
-                _appBar()
-              ],
+          children: [
+            ARMODWidget(
+              onARMODCreated: onARMODCreate,
+              onARMODExit: onARMODExit,
+              onARMODLaunch: onARMODLaunch,
+              onAddLoadingOverlay: onAddLoadingOverlay,
+              onDeviceNotSupport: onDeviceNotSupport,
+              onNeedInstallARCoreService: onNeedInstallARCoreService,
+              onOpenBuiltInBrowser: onOpenBuiltInBrowser,
+              onPackageSizeMoreThanPresetSize: onPackageSizeMoreThanPresetSize,
+              onRecognitionComplete: onRecognitionComplete,
+              onRecognitionStart: onRecognitionStart,
+              onRemoveLoadingOverlay: onRemoveLoadingOverlay,
+              onSdkInitialized: onSdkInitialized,
+              onThrowException: onThrowException,
+              onTryAcquireInformation: onTryAcquireInformation,
+              onUpdateLoadingProgress: onUpdateLoadingProgress,
+              fullscreen: true,
             ),
+            _appBar()
+          ],
+        ),
       ),
     );
   }
@@ -101,7 +101,7 @@ class ARViewState extends State<ARView> {
       //May need to wait one more frame
       await Future.delayed(Duration(milliseconds: 1));
     }
-
+    _isClosedByBack = true;
     return _onWillPop;
   }
 
@@ -159,6 +159,9 @@ class ARViewState extends State<ARView> {
     print("-------onARMODExit---------");
     print("----------------------------");
     _onWillPop = true;
+    
+    //Close by AR-Experiences
+    if (!_isClosedByBack) Navigator.of(context).pop(true);
   }
 
   void onUpdateLoadingProgress(progress) {
