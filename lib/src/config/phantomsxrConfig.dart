@@ -1,3 +1,3 @@
 class PhantomsXRConfig {
-  static String AppToken = "eyJhbGciOiJIUzUxMiIsImlhdCI6MTYxODc2OTkzMSwiZXhwIjoxMDI1ODc2OTkzMX0.eyJwYWNrYWdlaWQiOiJjb20ucGhhbnRvbXMuYXJtb2QiLCJ1c2VyX3VpZCI6MTAxMjQ1MTU0M30.TZv-LKoNvQqnvpXKVDGhY7YNu1OFnazLBODbgdZydRsmyHD4z7Nd7kmi7Hbt4bLQndRcgGE_9IRvVjE64foCkQ";
+  static String AppToken = "YOUT_TOKEN";
 }
