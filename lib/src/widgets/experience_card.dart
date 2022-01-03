@@ -41,7 +41,7 @@ class ExperienceCard extends StatelessWidget {
                   height: 1,
                 ),
                 Container(
-                  width: 250,
+                  width: 200,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

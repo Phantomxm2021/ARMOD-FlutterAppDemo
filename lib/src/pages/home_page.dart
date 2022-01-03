@@ -1,7 +1,6 @@
 import 'package:armod_flutter_store/src/model/general_experience.dart';
 import 'package:armod_flutter_store/src/widgets/column_builder.dart';
 
-
 import 'package:armod_flutter_store/src/model/recommand_experience.dart';
 import 'package:armod_flutter_store/src/widgets/experience_card.dart';
 import 'package:armod_flutter_store/src/widgets/recommend_card.dart';
@@ -56,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Container(
           margin: EdgeInsets.symmetric(vertical: 5),
           width: AppTheme.fullWidth(context),
-          height: AppTheme.fullHeight(context) * 0.37,
+          height: AppTheme.fullHeight(context) * 0.38,
           child: ScrollSnapList(
             margin: EdgeInsets.symmetric(vertical: 5),
             onItemFocus: _onItemFocus,
@@ -79,8 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _onGeneralARExperienceFocus(int index) {
-    setState(() {
-    });
+    setState(() {});
   }
 
   Widget _allARexperiences() {
