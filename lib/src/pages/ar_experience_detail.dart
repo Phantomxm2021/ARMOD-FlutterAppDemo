@@ -57,7 +57,8 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   ),
-                  child: Icon(Icons.close, color: Colors.black54, size: 20),
+                  child:
+                      Icon(Icons.arrow_back, color: Colors.black54, size: 20),
                 )
               ],
             ),
@@ -109,50 +110,56 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
       minChildSize: .53,
       builder: (context, scrollController) {
         return Container(
-          padding: AppTheme.padding.copyWith(bottom: 0),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(40),
-                topRight: Radius.circular(40),
+            padding: AppTheme.padding.copyWith(bottom: 0),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                ),
+                color: Colors.white),
+            child: NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (OverscrollIndicatorNotification overscroll) {
+                overscroll.disallowGlow();
+                return false;
+              },
+              child: SingleChildScrollView(
+                controller: scrollController,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    SizedBox(height: 5),
+                    Container(
+                      alignment: Alignment.center,
+                      child: Container(
+                        width: 50,
+                        height: 5,
+                        decoration: BoxDecoration(
+                            color: LightColor.iconColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          TitleText(
+                              text: generalExperience.showcase_name ?? "",
+                              fontSize: 25),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    _description(),
+                  ],
+                ),
               ),
-              color: Colors.white),
-          child: SingleChildScrollView(
-            controller: scrollController,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                SizedBox(height: 5),
-                Container(
-                  alignment: Alignment.center,
-                  child: Container(
-                    width: 50,
-                    height: 5,
-                    decoration: BoxDecoration(
-                        color: LightColor.iconColor,
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                  ),
-                ),
-                SizedBox(height: 10),
-                Container(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      TitleText(
-                          text: generalExperience.showcase_name ?? "",
-                          fontSize: 25),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                _description(),
-              ],
-            ),
-          ),
-        );
+            ));
       },
     );
   }

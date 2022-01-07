@@ -53,18 +53,23 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(vertical: 5),
-          width: AppTheme.fullWidth(context),
-          height: AppTheme.fullHeight(context) * 0.38,
-          child: ScrollSnapList(
             margin: EdgeInsets.symmetric(vertical: 5),
-            onItemFocus: _onItemFocus,
-            itemSize: 340,
-            itemBuilder: _buildListItem,
-            itemCount: recommandARExperience.length,
-            key: sslKey,
-          ),
-        ),
+            width: AppTheme.fullWidth(context),
+            height: AppTheme.fullHeight(context) * 0.38,
+            child: NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (OverscrollIndicatorNotification overscroll) {
+                overscroll.disallowGlow();
+                return false;
+              },
+              child: ScrollSnapList(
+                margin: EdgeInsets.symmetric(vertical: 5),
+                onItemFocus: _onItemFocus,
+                itemSize: 340,
+                itemBuilder: _buildListItem,
+                itemCount: recommandARExperience.length,
+                key: sslKey,
+              ),
+            )),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           child: Divider(),
@@ -82,30 +87,40 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _allARexperiences() {
-    return SingleChildScrollView(
-        child: ColumnBuilder(
-            focusToItem: _onGeneralARExperienceFocus,
-            itemBuilder: _buildGeneralExperience,
-            itemCount: generalExperience.length));
+    return NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (OverscrollIndicatorNotification overscroll) {
+          overscroll.disallowGlow();
+          return false;
+        },
+        child: SingleChildScrollView(
+            child: ColumnBuilder(
+                focusToItem: _onGeneralARExperienceFocus,
+                itemBuilder: _buildGeneralExperience,
+                itemCount: generalExperience.length)));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.transparent.withOpacity(0),
-      child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        dragStartBehavior: DragStartBehavior.down,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            _recommandWidget(),
-            _allARexperiences(),
-          ],
-        ),
-      ),
-    );
+    return NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (OverscrollIndicatorNotification overscroll) {
+          overscroll.disallowGlow();
+          return true;
+        },
+        child: Container(
+          color: Colors.transparent.withOpacity(0),
+          child: SingleChildScrollView(
+            // physics: BouncingScrollPhysics(),
+            // dragStartBehavior: DragStartBehavior.down,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                _recommandWidget(),
+                _allARexperiences(),
+              ],
+            ),
+          ),
+        ));
   }
 
   ///Used to get all recommended showcases of the current APP

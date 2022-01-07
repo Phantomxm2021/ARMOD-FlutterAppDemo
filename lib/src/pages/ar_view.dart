@@ -54,7 +54,9 @@ class ARViewState extends State<ARView> {
           ),
           onTap: () async {
             bool willPop = await _onBackPressed();
-            if (willPop) Navigator.of(context).pop(true);
+            if (willPop) {
+              Navigator.of(context).pop(true);
+            }
           },
         ));
   }
@@ -140,14 +142,14 @@ class ARViewState extends State<ARView> {
   }
 
   void onARMODLaunch() {
-    print("----------------------------");
-    print("-------onARMODLaunch---------");
-    print("----------------------------");
     _armodWidgetController.initARMOD(
         '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://weacw.com/api/v1/getarexperience","token":"${PhantomsXRConfig.AppToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
 
-    Future.delayed(Duration(milliseconds: 125),
-        () => {_armodWidgetController.fetchProject(AppData.ar_experience_uid)});
+    Future.delayed(
+        Duration(milliseconds: 25),
+        () => {
+              _armodWidgetController.fetchProject(AppData.ar_experience_uid),
+            });
   }
 
   void onThrowException(String errorMsg, int erorCode) {
@@ -160,7 +162,7 @@ class ARViewState extends State<ARView> {
     print("-------onARMODExit---------");
     print("----------------------------");
     _onWillPop = true;
-    
+
     //Close by AR-Experiences
     if (!_isClosedByBack) Navigator.of(context).pop(true);
   }
