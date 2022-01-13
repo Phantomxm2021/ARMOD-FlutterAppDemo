@@ -8,8 +8,8 @@
     com.immersal.poseplugin ,
     com.unity3d.player"/>
    <application
-        android:label="armod_flutter_store"
-        android:icon="@mipmap/ic_launcher">
+        android:label="ARMOD"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

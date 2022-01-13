@@ -41,11 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildListItem(BuildContext context, int index) {
     return Container(
-        margin: EdgeInsets.symmetric(horizontal: 5),
-        width: 330,
         child: RecommandCard(
-          recommandItem: recommandARExperience[index],
-        ));
+      recommandItem: recommandARExperience[index],
+    ));
   }
 
   final PageController controller = PageController(initialPage: 0);
@@ -53,16 +51,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
       children: [
         Container(
-            margin: EdgeInsets.symmetric(vertical: 5),
+            margin: EdgeInsets.only(top: 10),
             width: AppTheme.fullWidth(context),
-            height: AppTheme.fullHeight(context) * 0.38,
+            height: AppTheme.fullHeight(context) * 0.34,
             child: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (OverscrollIndicatorNotification overscroll) {
                 overscroll.disallowGlow();
                 return false;
               },
               child: ScrollSnapList(
-                margin: EdgeInsets.symmetric(vertical: 5),
+                // margin: EdgeInsets.only(top: 5),
                 onItemFocus: _onItemFocus,
                 itemSize: 340,
                 itemBuilder: _buildListItem,
@@ -71,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             )),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: Divider(),
         ),
       ],

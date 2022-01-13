@@ -106,8 +106,8 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
   Widget _detailWidget() {
     return DraggableScrollableSheet(
       maxChildSize: .8,
-      initialChildSize: .53,
-      minChildSize: .53,
+      initialChildSize: .6,
+      minChildSize: .6,
       builder: (context, scrollController) {
         return Container(
             padding: AppTheme.padding.copyWith(bottom: 0),

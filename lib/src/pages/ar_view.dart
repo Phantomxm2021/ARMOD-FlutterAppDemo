@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_armod_widget/flutter_armod_widget.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter/services.dart';
 
 import '../config/phantomsxrConfig.dart';
 
@@ -28,6 +29,7 @@ class ARViewState extends State<ARView> {
   @override
   void dispose() {
     super.dispose();
+    EasyLoading.dismiss();
   }
 
   Widget _appBar() {
@@ -53,10 +55,7 @@ class ARViewState extends State<ARView> {
             ),
           ),
           onTap: () async {
-            bool willPop = await _onBackPressed();
-            if (willPop) {
-              Navigator.of(context).pop(true);
-            }
+            await _onBackPressed();
           },
         ));
   }
@@ -107,13 +106,21 @@ class ARViewState extends State<ARView> {
     return _onWillPop;
   }
 
-  showAlertDialog(BuildContext context, String title, String msg) {
+  showAlertDialog(BuildContext context, String title, String msg, bool close) {
     // set up the button
     Widget okButton = TextButton(
       child: Text("OK"),
-      onPressed: () {
-        //Navigator.of(context).pop();
-        _onBackPressed();
+      onPressed: () async {
+        if (close) {
+          //Dismiss loading ui
+          EasyLoading.dismiss();
+
+          //Dismiss alert
+          Navigator.of(context, rootNavigator: true).pop();
+
+          //Dismiss view
+          await _onBackPressed();
+        }
       },
     );
 
@@ -128,6 +135,7 @@ class ARViewState extends State<ARView> {
 
     // show the dialog
     showDialog(
+      barrierDismissible: false,
       context: context,
       builder: (BuildContext context) {
         return alert;
@@ -142,11 +150,15 @@ class ARViewState extends State<ARView> {
   }
 
   void onARMODLaunch() {
+    var orientationId =
+        MediaQuery.of(context).orientation == Orientation.portrait ? '1' : '2';
+    _armodWidgetController.setDeivcesOrientation(orientationId);
+
     _armodWidgetController.initARMOD(
         '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://weacw.com/api/v1/getarexperience","token":"${PhantomsXRConfig.AppToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
 
     Future.delayed(
-        Duration(milliseconds: 25),
+        Duration(milliseconds: 125),
         () => {
               _armodWidgetController.fetchProject(AppData.ar_experience_uid),
             });
@@ -154,17 +166,19 @@ class ARViewState extends State<ARView> {
 
   void onThrowException(String errorMsg, int erorCode) {
     EasyLoading.dismiss();
-    showAlertDialog(context, "(Error:$erorCode)", errorMsg);
+    showAlertDialog(context, "(Error:$erorCode)", errorMsg, true);
   }
 
   void onARMODExit() {
-    print("----------------------------");
-    print("-------onARMODExit---------");
-    print("----------------------------");
-    _onWillPop = true;
+    //Wait to release all asset
+    Future.delayed(
+        Duration(milliseconds: 500),
+        () => {
+              _onWillPop = true,
 
-    //Close by AR-Experiences
-    if (!_isClosedByBack) Navigator.of(context).pop(true);
+              //Close by AR-Experiences
+              if (!_isClosedByBack) Navigator.of(context).pop(true),
+            });
   }
 
   void onUpdateLoadingProgress(progress) {
@@ -188,11 +202,20 @@ class ARViewState extends State<ARView> {
     EasyLoading.dismiss();
   }
 
-  void onDeviceNotSupport() {}
+  void onDeviceNotSupport() {
+    showAlertDialog(
+        context,
+        "Device Not Supported",
+        "Your device is not supoorted! \n Will downgrade to normal version",
+        false);
+  }
 
   void onRecognitionStart() {}
 
-  void onNeedInstallARCoreService() {}
+  void onNeedInstallARCoreService() {
+    showAlertDialog(context, "ARCore Service Need",
+        "You need to install the ARCore service!", false);
+  }
 
   void onSdkInitialized() {}
 
