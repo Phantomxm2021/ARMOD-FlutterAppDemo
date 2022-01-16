@@ -1,0 +1,78 @@
+<linker>
+	<assembly fullname="com.Phantoms.SDKConfigures.Runtime">
+		<type fullname="com.Phantoms.SDKConfigures.Runtime.CustomConfig" preserve="nothing" serialized="true"/>
+		<type fullname="com.Phantoms.SDKConfigures.Runtime.DashboardConfig" preserve="nothing" serialized="true"/>
+		<type fullname="com.Phantoms.SDKConfigures.Runtime.EngineType" preserve="nothing" serialized="true"/>
+		<type fullname="com.Phantoms.SDKConfigures.Runtime.ImageCloudRecognizerConfig" preserve="nothing" serialized="true"/>
+		<type fullname="com.Phantoms.SDKConfigures.Runtime.SDKConfiguration" preserve="nothing" serialized="true"/>
+	</assembly>
+	<assembly fullname="Mirror.Components">
+		<type fullname="Mirror.Discovery.ServerFoundUnityEvent" preserve="nothing" serialized="true"/>
+	</assembly>
+	<assembly fullname="Unity.RenderPipelines.Core.Runtime">
+		<type fullname="UnityEngine.Rendering.UI.DebugUIPrefabBundle" preserve="nothing" serialized="true"/>
+	</assembly>
+	<assembly fullname="Unity.RenderPipelines.Universal.Runtime">
+		<type fullname="UnityEngine.Rendering.Universal.DBufferSettings" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.DecalScreenSpaceSettings" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.DecalSettings" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.PostProcessData/ShaderResources" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.PostProcessData/TextureResources" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.ScreenSpaceAmbientOcclusionSettings" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.ScreenSpaceShadowsSettings" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.ScriptableRendererData/DebugShaderResources" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.StencilStateData" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.UniversalRendererData/ShaderResources" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Rendering.Universal.XRSystemData/ShaderResources" preserve="nothing" serialized="true"/>
+	</assembly>
+	<assembly fullname="Unity.TextMeshPro">
+		<type fullname="TMPro.TMP_Style" preserve="nothing" serialized="true"/>
+	</assembly>
+	<assembly fullname="Unity.XR.Interaction.Toolkit">
+		<type fullname="UnityEngine.XR.Interaction.Toolkit.HoverEnterEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.XR.Interaction.Toolkit.HoverExitEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.XR.Interaction.Toolkit.SelectEnterEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.XR.Interaction.Toolkit.SelectExitEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent" preserve="nothing" serialized="true"/>
+	</assembly>
+	<assembly fullname="UnityEngine.CoreModule">
+		<type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true"/>
+	</assembly>
+	<assembly fullname="UnityEngine.TextCoreTextEngineModule">
+		<type fullname="UnityEngine.TextCore.Text.UnicodeLineBreakingRules" preserve="nothing" serialized="true"/>
+	</assembly>
+	<assembly fullname="UnityEngine.UI">
+		<type fullname="UnityEngine.EventSystems.EventTrigger/Entry" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.EventSystems.EventTrigger/TriggerEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.ColorBlock" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.FontData" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.InputField/EndEditEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.InputField/OnChangeEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.InputField/SubmitEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.Scrollbar/ScrollEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UI.Toggle/ToggleEvent" preserve="nothing" serialized="true"/>
+	</assembly>
+	<assembly fullname="UnityEngine.UIElementsModule">
+		<type fullname="UnityEngine.UIElements.DynamicAtlasSettings" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UIElements.StyleComplexSelector" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UIElements.StyleProperty" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UIElements.StyleRule" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UIElements.StyleSelector" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UIElements.StyleSelectorPart" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UIElements.StyleSheet/ImportStruct" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UIElements.StyleSheets.Dimension" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UIElements.StyleSheets.ScalableImage" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UIElements.StyleValueHandle" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.UIElements.VisualElementAsset" preserve="nothing" serialized="true"/>
+	</assembly>
+</linker>

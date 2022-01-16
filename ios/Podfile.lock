@@ -19,10 +19,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  flutter_armod_widget: 66d4a9a4ac7e0da4524a86f2b5fd19dfd478b927
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_armod_widget: fa19a3ff7a3ee7310e3f6260c28d163610fb4fdb
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
 
 PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
 
-COCOAPODS: 1.11.0.beta.2
+COCOAPODS: 1.11.2
