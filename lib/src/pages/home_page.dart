@@ -1,7 +1,6 @@
 import 'package:armod_flutter_store/src/model/general_experience.dart';
 import 'package:armod_flutter_store/src/widgets/column_builder.dart';
 
-
 import 'package:armod_flutter_store/src/model/recommand_experience.dart';
 import 'package:armod_flutter_store/src/widgets/experience_card.dart';
 import 'package:armod_flutter_store/src/widgets/recommend_card.dart';
@@ -42,11 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildListItem(BuildContext context, int index) {
     return Container(
-        margin: EdgeInsets.symmetric(horizontal: 5),
-        width: 330,
         child: RecommandCard(
-          recommandItem: recommandARExperience[index],
-        ));
+      recommandItem: recommandARExperience[index],
+    ));
   }
 
   final PageController controller = PageController(initialPage: 0);
@@ -54,20 +51,25 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(vertical: 5),
-          width: AppTheme.fullWidth(context),
-          height: AppTheme.fullHeight(context) * 0.37,
-          child: ScrollSnapList(
-            margin: EdgeInsets.symmetric(vertical: 5),
-            onItemFocus: _onItemFocus,
-            itemSize: 340,
-            itemBuilder: _buildListItem,
-            itemCount: recommandARExperience.length,
-            key: sslKey,
-          ),
-        ),
+            margin: EdgeInsets.only(top: 10),
+            width: AppTheme.fullWidth(context),
+            height: AppTheme.fullHeight(context) * 0.34,
+            child: NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (OverscrollIndicatorNotification overscroll) {
+                overscroll.disallowGlow();
+                return false;
+              },
+              child: ScrollSnapList(
+                // margin: EdgeInsets.only(top: 5),
+                onItemFocus: _onItemFocus,
+                itemSize: 340,
+                itemBuilder: _buildListItem,
+                itemCount: recommandARExperience.length,
+                key: sslKey,
+              ),
+            )),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: Divider(),
         ),
       ],
@@ -79,35 +81,44 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _onGeneralARExperienceFocus(int index) {
-    setState(() {
-    });
+    setState(() {});
   }
 
   Widget _allARexperiences() {
-    return SingleChildScrollView(
-        child: ColumnBuilder(
-            focusToItem: _onGeneralARExperienceFocus,
-            itemBuilder: _buildGeneralExperience,
-            itemCount: generalExperience.length));
+    return NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (OverscrollIndicatorNotification overscroll) {
+          overscroll.disallowGlow();
+          return false;
+        },
+        child: SingleChildScrollView(
+            child: ColumnBuilder(
+                focusToItem: _onGeneralARExperienceFocus,
+                itemBuilder: _buildGeneralExperience,
+                itemCount: generalExperience.length)));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.transparent.withOpacity(0),
-      child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        dragStartBehavior: DragStartBehavior.down,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            _recommandWidget(),
-            _allARexperiences(),
-          ],
-        ),
-      ),
-    );
+    return NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (OverscrollIndicatorNotification overscroll) {
+          overscroll.disallowGlow();
+          return true;
+        },
+        child: Container(
+          color: Colors.transparent.withOpacity(0),
+          child: SingleChildScrollView(
+            // physics: BouncingScrollPhysics(),
+            // dragStartBehavior: DragStartBehavior.down,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                _recommandWidget(),
+                _allARexperiences(),
+              ],
+            ),
+          ),
+        ));
   }
 
   ///Used to get all recommended showcases of the current APP

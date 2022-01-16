@@ -41,7 +41,7 @@ class ExperienceCard extends StatelessWidget {
                   height: 1,
                 ),
                 Container(
-                  width: 250,
+                  width: MediaQuery.of(context).size.width - 120,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -56,7 +56,7 @@ class ExperienceCard extends StatelessWidget {
                       ),
                       Container(
                         padding: EdgeInsets.only(top: 3),
-                        width: 250,
+                        // width: 250,
                         child: Divider(),
                       ),
                     ],

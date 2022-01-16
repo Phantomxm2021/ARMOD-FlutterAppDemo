@@ -3,6 +3,7 @@ import 'package:armod_flutter_store/src/pages/mainPage.dart';
 import 'package:armod_flutter_store/src/pages/ar_experience_detail.dart';
 import 'package:armod_flutter_store/src/themes/theme.dart';
 import 'package:armod_flutter_store/src/widgets/customRoute.dart';
+import 'package:armod_flutter_store/src/widgets/without_scroll_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'AR-MOD Store Flutter',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
+      scrollBehavior: without_scroll_glow(),
       builder: EasyLoading.init(),
       routes: Routes.getRoute(),
       onGenerateRoute: (RouteSettings settings) {
