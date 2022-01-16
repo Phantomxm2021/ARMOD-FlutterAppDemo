@@ -110,7 +110,7 @@ This repository is used to demonstrate how the AR-MOD SDK can be used in Flutter
     </details>
 
 
-4. Create and write your app token to [PhantomsXRConfig.dart](main/lib/src/config/phantomsxrConfig.dart).
+4. Create and write your app token to [PhantomsXRConfig.dart](lib/src/config/phantomsxrConfig.dart).
 
 5. And write a new screen for AR-MOD.
 
