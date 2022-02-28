@@ -7,6 +7,7 @@ import 'package:flutter_armod_widget/flutter_armod_widget.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../config/phantomsxrConfig.dart';
+import '../utils.dart';
 
 class ARView extends StatefulWidget {
   ARView({Key? key}) : super(key: key);
@@ -151,15 +152,12 @@ class ARViewState extends State<ARView> {
     var orientationId =
         MediaQuery.of(context).orientation == Orientation.portrait ? '1' : '2';
     _armodWidgetController.setDeivcesOrientation(orientationId);
-
-    _armodWidgetController.initARMOD(
-        '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://phantomsxr.cn/api/v2/getarresources","token":"${PhantomsXRConfig.TestToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
+    _armodWidgetController.initARMOD(PhantomsXRConfig.AppConfig);
 
     Future.delayed(
         Duration(milliseconds: 125),
         () => {
               _armodWidgetController.fetchProject(AppData.ar_experience_uid),
-              // _armodWidgetController.fetchProject("560194813"),
             });
   }
 

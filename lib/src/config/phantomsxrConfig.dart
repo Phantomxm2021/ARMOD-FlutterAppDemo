@@ -1,6 +1,8 @@
+import '../utils.dart';
+
 class PhantomsXRConfig {
   static String AppToken =
-      "eyJhbGciOiJIUzUxMiIsImlhdCI6MTYxODc2OTkzMSwiZXhwIjoxMDI1ODc2OTkzMX0.eyJwYWNrYWdlaWQiOiJjb20ucGhhbnRvbXMuYXJtb2QiLCJ1c2VyX3VpZCI6MTAxMjQ1MTU0M30.TZv-LKoNvQqnvpXKVDGhY7YNu1OFnazLBODbgdZydRsmyHD4z7Nd7kmi7Hbt4bLQndRcgGE_9IRvVjE64foCkQ";
-  static String TestToken =
       "eyJhbGciOiJIUzUxMiIsImlhdCI6MTY0NTAxMTEyNSwiZXhwIjoxMDI4NTAxMTEyNX0.eyJwYWNrYWdlaWQiOiJjb20ucGhhbnRvbXN4ci50ZXN0YXBwIiwidXNlcl91aWQiOjEwMTI0NTE1NDN9.hWDyMwhzhdjMvoOdZc6mfqHQDq-9-45OttCsZAGv-k51YV96wcTB48aM-JWZ47KgjQImBNJuC59BCxCSyUmfyw";
+  static String AppConfig =
+      '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"${Utils.baseAPIGatewayUrl}/getarresources","token":"${AppToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}';
 }

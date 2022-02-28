@@ -14,7 +14,7 @@ class Utils {
     final response = await http.post(Uri.parse('$baseAPIGatewayUrl$apiAction'),
         headers: <String, String>{
           'Content-Type': 'application/x-www-form-urlencoded',
-          'authorization': 'Token ${PhantomsXRConfig.TestToken}',
+          'authorization': 'Token ${PhantomsXRConfig.AppToken}',
         },
         body: body);
     if (response.statusCode == 200) {
@@ -34,7 +34,7 @@ class Utils {
             '$baseAPIGatewayUrl$apiAction?page_num=$pageNum&page_size=$pageSize'),
         headers: <String, String>{
           'Content-Type': 'application/x-www-form-urlencoded',
-          'authorization': 'Token ${PhantomsXRConfig.TestToken}',
+          'authorization': 'Token ${PhantomsXRConfig.AppToken}',
         });
     if (response.statusCode == 200) {
       dynamic responseData = json.decode(response.body);
@@ -53,7 +53,7 @@ class Utils {
         await http.post(Uri.parse('$baseAPIGatewayUrl/getarexperience'),
             headers: <String, String>{
               'Content-Type': 'application/x-www-form-urlencoded',
-              'authorization': 'Token ${PhantomsXRConfig.TestToken}',
+              'authorization': 'Token ${PhantomsXRConfig.AppToken}',
             },
             body: body);
     if (response.statusCode == 200) {
