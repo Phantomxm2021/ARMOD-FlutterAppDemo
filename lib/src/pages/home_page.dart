@@ -4,11 +4,10 @@ import 'package:armod_flutter_store/src/widgets/column_builder.dart';
 import 'package:armod_flutter_store/src/model/recommand_experience.dart';
 import 'package:armod_flutter_store/src/widgets/experience_card.dart';
 import 'package:armod_flutter_store/src/widgets/recommend_card.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:armod_flutter_store/src/themes/theme.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
-
+import 'dart:async';
 import '../utils.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -22,20 +21,38 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   GlobalKey<ScrollSnapListState> sslKey = GlobalKey();
-  // late List<RecommandARExperience> recommandARExperience = [];
   late List<RecommandARExperienceProject> recommandARExperienceProject = [];
-  late List<GeneralExperence> generalExperience = [];
+  late List<GeneralV2Experence> generalV2Experience = [];
+  ScrollController _scrollController = ScrollController();
+  int page_num = 1;
+  int page_size = 10;
+  bool isLoadMoreData = false;
 
   @override
   void initState() {
     super.initState();
     startToPullRecommand();
+    _scrollController.addListener(() async {
+      if (_scrollController.position.pixels >
+              _scrollController.position.maxScrollExtent + 200 &&
+          !isLoadMoreData) {
+        isLoadMoreData = true;
+
+        var tmp_NextPageNum = page_num + 1;
+        var tmp_AdditionData = await queryV2GeneralExperence(tmp_NextPageNum);
+        if (tmp_AdditionData.length > 0) {
+          generalV2Experience.addAll(tmp_AdditionData);
+          page_num = tmp_NextPageNum;
+        }
+        isLoadMoreData = false;
+        setState(() {});
+      }
+    });
   }
 
   void startToPullRecommand() async {
-    // recommandARExperience = await queryRecommand();
     recommandARExperienceProject = await queryV2Recommand();
-    // generalExperience = await queryGeneralExperence();
+    generalV2Experience = await queryV2GeneralExperence(page_num);
     setState(() {});
   }
 
@@ -48,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ));
   }
 
-  final PageController controller = PageController(initialPage: 0);
+  // final PageController controller = PageController(initialPage: 0);
   Widget _recommandWidget() {
     return Column(
       children: [
@@ -58,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
             height: AppTheme.fullHeight(context) * 0.34,
             child: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (OverscrollIndicatorNotification overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
               child: ScrollSnapList(
@@ -79,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildGeneralExperience(BuildContext context, int index) {
-    return ExperienceCard(generalExperienceItem: generalExperience[index]);
+    return ExperienceCard(generalExperienceItem: generalV2Experience[index]);
   }
 
   void _onGeneralARExperienceFocus(int index) {
@@ -87,52 +104,54 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _allARexperiences() {
-    return NotificationListener<OverscrollIndicatorNotification>(
-        onNotification: (OverscrollIndicatorNotification overscroll) {
-          overscroll.disallowGlow();
-          return false;
-        },
-        child: SingleChildScrollView(
-            child: ColumnBuilder(
-                focusToItem: _onGeneralARExperienceFocus,
-                itemBuilder: _buildGeneralExperience,
-                itemCount: generalExperience.length)));
+    // return SingleChildScrollView(
+    //   physics: BouncingScrollPhysics(),
+    //   child: ColumnBuilder(
+    //       focusToItem: _onGeneralARExperienceFocus,
+    //       itemBuilder: _buildGeneralExperience,
+    //       itemCount: generalV2Experience.length),
+    //   controller: _scrollController,
+    // );
+    return ColumnBuilder(
+        focusToItem: _onGeneralARExperienceFocus,
+        itemBuilder: _buildGeneralExperience,
+        itemCount: generalV2Experience.length);
   }
 
   @override
   Widget build(BuildContext context) {
-    return NotificationListener<OverscrollIndicatorNotification>(
-        onNotification: (OverscrollIndicatorNotification overscroll) {
-          overscroll.disallowGlow();
-          return true;
-        },
-        child: Container(
-          color: Colors.transparent.withOpacity(0),
-          child: SingleChildScrollView(
-            // physics: BouncingScrollPhysics(),
-            // dragStartBehavior: DragStartBehavior.down,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                _recommandWidget(),
-                _allARexperiences(),
-              ],
-            ),
+    return RefreshIndicator(
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              _recommandWidget(),
+              _allARexperiences(),
+            ],
           ),
-        ));
+          controller: _scrollController,
+        ),
+        onRefresh: _onRefresh);
   }
 
-  ///Used to get all recommended showcases of the current APP
-  Future<List<RecommandARExperience>> queryRecommand() async {
-    var result = await Utils.queryPhantomCloud("getshowcaserecommends", null);
-    List<dynamic> recommandItems = result['data'];
-    List<RecommandARExperience> recommandARExperiences = [];
-    for (var idx = 0; idx < recommandItems.length; idx++) {
-      recommandARExperiences
-          .add(RecommandARExperience.fromJson(recommandItems[idx]));
-    }
-    return recommandARExperiences;
+  Future<Null> _onRefresh() async {
+    recommandARExperienceProject.clear();
+    generalV2Experience.clear();
+    startToPullRecommand();
+    // setState(() {
+    //   isLoading = true;
+    // });
+  }
+
+  Future<Null> _loadMore() async {
+    recommandARExperienceProject.clear();
+    generalV2Experience.clear();
+    startToPullRecommand();
+    // setState(() {
+    //   isLoading = true;
+    // });
   }
 
   Future<List<RecommandARExperienceProject>> queryV2Recommand() async {
@@ -146,13 +165,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return recommandARExperiences;
   }
 
-  ///Get all showcases
-  Future<List<GeneralExperence>> queryGeneralExperence() async {
-    var result = await Utils.queryPhantomCloud('getshowcaselist', null);
-    List<dynamic> generalItems = result['data'];
-    List<GeneralExperence> generalExperences = [];
+  Future<List<GeneralV2Experence>> queryV2GeneralExperence(
+      int _nextPage) async {
+    var result = await Utils.getARExperienceProjects(
+        'getarexperiencelist', _nextPage, page_size);
+    List<dynamic> generalItems = result['data'] ?? null;
+    List<GeneralV2Experence> generalExperences = [];
     for (var idx = 0; idx < generalItems.length; idx++) {
-      generalExperences.add(GeneralExperence.fromJson(generalItems[idx]));
+      generalExperences.add(GeneralV2Experence.fromJson(generalItems[idx]));
     }
     return generalExperences;
   }

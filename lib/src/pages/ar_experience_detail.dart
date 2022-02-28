@@ -18,7 +18,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
     with TickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> animation;
-  late GeneralExperenceDetail generalExperience;
+  late GeneralV2ExperenceDetail generalExperience;
   bool hasData = false;
   bool luanched_ar = false;
   @override
@@ -70,17 +70,24 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
   }
 
   void startToPullRecommand() async {
-    generalExperience = await queryGeneralExperenceDetail();
+    generalExperience = await queryV2GeneralExperenceDetail();
     setState(() {
       hasData = true;
     });
   }
 
   ///Get all showcases
-  Future<GeneralExperenceDetail> queryGeneralExperenceDetail() async {
-    var result = await Utils.queryPhantomCloud('getshowcase',
-        {"showcase_uid": AppData.seleted_showcase_uid.toString()});
-    return GeneralExperenceDetail.fromJson(result['data']);
+  // Future<GeneralExperenceDetail> queryGeneralExperenceDetail() async {
+  //   var result = await Utils.queryPhantomCloud('getshowcase',
+  //       {"showcase_uid": AppData.seleted_showcase_uid.toString()});
+  //   return GeneralExperenceDetail.fromJson(result['data']);
+  // }
+
+  Future<GeneralV2ExperenceDetail> queryV2GeneralExperenceDetail() async {
+    var result = await Utils.getARExperienceDetail(
+        AppData.seleted_showcase_uid.toString());
+    dynamic generalItems = result['data'];
+    return GeneralV2ExperenceDetail.fromJson(generalItems);
   }
 
   Widget _arExperienceImage() {
@@ -98,7 +105,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
           height: AppTheme.fullHeight(context) * 0.5,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(generalExperience.showcase_header ?? ""),
+                  image: NetworkImage(generalExperience.project_header ?? ""),
                   fit: BoxFit.cover)),
         ));
   }
@@ -119,7 +126,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
                 color: Colors.white),
             child: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (OverscrollIndicatorNotification overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
               child: SingleChildScrollView(
@@ -147,7 +154,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           TitleText(
-                              text: generalExperience.showcase_name ?? "",
+                              text: generalExperience.project_name ?? "",
                               fontSize: 25),
                         ],
                       ),
@@ -168,12 +175,20 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        Container(
+            padding: EdgeInsets.symmetric(vertical: 5),
+            margin: EdgeInsets.only(bottom: 10),
+            height: 360.0,
+            child: new ListView(
+              scrollDirection: Axis.horizontal,
+              children: _buildPreviewImage(),
+            )),
         TitleText(
           text: "描述",
-          fontSize: 14,
+          fontSize: 20,
         ),
         SizedBox(height: 20),
-        Text(generalExperience.showcase_brief ?? ""),
+        Text(generalExperience.project_description ?? ""),
       ],
     );
   }
@@ -183,8 +198,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
       onPressed: () {
         if (luanched_ar) return;
         luanched_ar = true;
-        AppData.ar_experience_uid =
-            generalExperience.arexperience_uid.toString();
+        AppData.ar_experience_uid = generalExperience.project_id.toString();
         Navigator.of(context).pushNamed("/ar_view");
         luanched_ar = false;
       },
@@ -201,10 +215,28 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
     );
   }
 
+  List<Widget> _buildPreviewImage() {
+    List<Widget> _previews = [];
+    var length = generalExperience.project_preview?.length;
+    for (var i = 0; i < length!; i++) {
+      var widget = ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+        child: Padding(
+          padding: EdgeInsets.only(right: 5),
+          child: Image.network(generalExperience.project_preview![i] ?? "",
+              width: 160, height: 320, fit: BoxFit.cover),
+        ),
+      );
+      _previews.add(widget);
+    }
+
+    return _previews;
+  }
+
   @override
   Widget build(BuildContext context) {
     //Fix status bar not display
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
     return Scaffold(
         floatingActionButton: _flotingButton(),

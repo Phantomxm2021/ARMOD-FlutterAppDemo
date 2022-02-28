@@ -7,15 +7,15 @@ import 'package:armod_flutter_store/src/themes/light_color.dart';
 import 'package:armod_flutter_store/src/widgets/title_text.dart';
 
 class ExperienceCard extends StatelessWidget {
-  final GeneralExperence? generalExperienceItem;
-  final ValueChanged<GeneralExperence>? onSelected;
+  final GeneralV2Experence? generalExperienceItem;
+  final ValueChanged<GeneralV2Experence>? onSelected;
   ExperienceCard({Key? key, this.generalExperienceItem, this.onSelected})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          AppData.seleted_showcase_uid = generalExperienceItem!.showcase_uid!;
+          AppData.seleted_showcase_uid = generalExperienceItem!.project_id!;
           Navigator.of(context).pushNamed('/detail');
           if (onSelected != null) onSelected!(generalExperienceItem!);
         },
@@ -31,7 +31,7 @@ class ExperienceCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                         image:
-                            NetworkImage(generalExperienceItem!.showcase_icon!),
+                            NetworkImage(generalExperienceItem!.project_icon!),
                         fit: BoxFit.cover),
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   ),
@@ -46,11 +46,11 @@ class ExperienceCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TitleText(
-                        text: generalExperienceItem!.showcase_name!,
+                        text: generalExperienceItem!.project_name!,
                         fontSize: 20,
                       ),
                       SubTitleText(
-                        text: generalExperienceItem!.showcase_brief!,
+                        text: generalExperienceItem!.project_brief!,
                         fontSize: 12,
                         color: LightColor.grey,
                       ),

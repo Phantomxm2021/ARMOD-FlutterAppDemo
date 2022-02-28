@@ -75,32 +75,33 @@ class _MainPageState extends State<MainPage> {
       body: SafeArea(
         bottom: false,
         top: true,
-        child: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            SingleChildScrollView(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xfffbfbfb),
-                      Color(0xfff7f7f7),
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    // _appBar(),
-                    MyHomePage(),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+        child: MyHomePage(),
+        // child: Stack(
+        //   fit: StackFit.expand,
+        //   children: <Widget>[
+        //     SingleChildScrollView(
+        //       child: Container(
+        //         decoration: BoxDecoration(
+        //           gradient: LinearGradient(
+        //             colors: [
+        //               Color(0xfffbfbfb),
+        //               Color(0xfff7f7f7),
+        //             ],
+        //             begin: Alignment.topCenter,
+        //             end: Alignment.bottomCenter,
+        //           ),
+        //         ),
+        //         child: Column(
+        //           crossAxisAlignment: CrossAxisAlignment.start,
+        //           children: <Widget>[
+        //             // _appBar(),
+        //             MyHomePage(),
+        //           ],
+        //         ),
+        //       ),
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }

@@ -2,11 +2,9 @@ import 'dart:async';
 
 import 'package:armod_flutter_store/src/model/data.dart';
 import 'package:armod_flutter_store/src/themes/theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_armod_widget/flutter_armod_widget.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter/services.dart';
 
 import '../config/phantomsxrConfig.dart';
 
@@ -160,8 +158,8 @@ class ARViewState extends State<ARView> {
     Future.delayed(
         Duration(milliseconds: 125),
         () => {
-              // _armodWidgetController.fetchProject(AppData.ar_experience_uid),
-              _armodWidgetController.fetchProject("560194813"),
+              _armodWidgetController.fetchProject(AppData.ar_experience_uid),
+              // _armodWidgetController.fetchProject("560194813"),
             });
   }
 
