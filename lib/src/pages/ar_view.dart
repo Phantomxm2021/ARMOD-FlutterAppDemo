@@ -155,12 +155,13 @@ class ARViewState extends State<ARView> {
     _armodWidgetController.setDeivcesOrientation(orientationId);
 
     _armodWidgetController.initARMOD(
-        '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://weacw.com/api/v1/getarexperience","token":"${PhantomsXRConfig.AppToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
+        '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://phantomsxr.cn/api/v2/getarresources","token":"${PhantomsXRConfig.TestToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
 
     Future.delayed(
         Duration(milliseconds: 125),
         () => {
-              _armodWidgetController.fetchProject(AppData.ar_experience_uid),
+              // _armodWidgetController.fetchProject(AppData.ar_experience_uid),
+              _armodWidgetController.fetchProject("560194813"),
             });
   }
 

@@ -22,7 +22,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   GlobalKey<ScrollSnapListState> sslKey = GlobalKey();
-  late List<RecommandARExperience> recommandARExperience = [];
+  // late List<RecommandARExperience> recommandARExperience = [];
+  late List<RecommandARExperienceProject> recommandARExperienceProject = [];
   late List<GeneralExperence> generalExperience = [];
 
   @override
@@ -32,8 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void startToPullRecommand() async {
-    recommandARExperience = await queryRecommand();
-    generalExperience = await queryGeneralExperence();
+    // recommandARExperience = await queryRecommand();
+    recommandARExperienceProject = await queryV2Recommand();
+    // generalExperience = await queryGeneralExperence();
     setState(() {});
   }
 
@@ -42,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildListItem(BuildContext context, int index) {
     return Container(
         child: RecommandCard(
-      recommandItem: recommandARExperience[index],
+      recommandItem: recommandARExperienceProject[index],
     ));
   }
 
@@ -64,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onItemFocus: _onItemFocus,
                 itemSize: 340,
                 itemBuilder: _buildListItem,
-                itemCount: recommandARExperience.length,
+                itemCount: recommandARExperienceProject.length,
                 key: sslKey,
               ),
             )),
@@ -129,6 +131,17 @@ class _MyHomePageState extends State<MyHomePage> {
     for (var idx = 0; idx < recommandItems.length; idx++) {
       recommandARExperiences
           .add(RecommandARExperience.fromJson(recommandItems[idx]));
+    }
+    return recommandARExperiences;
+  }
+
+  Future<List<RecommandARExperienceProject>> queryV2Recommand() async {
+    var result = await Utils.queryPhantomCloud("getrecommendslist", null);
+    List<dynamic> recommandItems = result['data'];
+    List<RecommandARExperienceProject> recommandARExperiences = [];
+    for (var idx = 0; idx < recommandItems.length; idx++) {
+      recommandARExperiences
+          .add(RecommandARExperienceProject.fromJson(recommandItems[idx]));
     }
     return recommandARExperiences;
   }

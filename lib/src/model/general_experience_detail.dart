@@ -41,3 +41,5 @@ class GeneralExperenceDetail {
     showcase_not_index_tags = json['showcase_not_index_tags'];
   }
 }
+
+class ARExperienceDetail {}

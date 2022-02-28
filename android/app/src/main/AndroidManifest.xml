@@ -9,7 +9,8 @@
     com.unity3d.player"/>
    <application
         android:label="ARMOD"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/launcher_icon"
+        android:extractNativeLibs="true">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
