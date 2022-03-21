@@ -104,14 +104,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _allARexperiences() {
-    // return SingleChildScrollView(
-    //   physics: BouncingScrollPhysics(),
-    //   child: ColumnBuilder(
-    //       focusToItem: _onGeneralARExperienceFocus,
-    //       itemBuilder: _buildGeneralExperience,
-    //       itemCount: generalV2Experience.length),
-    //   controller: _scrollController,
-    // );
     return ColumnBuilder(
         focusToItem: _onGeneralARExperienceFocus,
         itemBuilder: _buildGeneralExperience,

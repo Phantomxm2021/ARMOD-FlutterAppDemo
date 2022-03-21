@@ -5,7 +5,6 @@ class GeneralV2ExperenceDetail {
   int? user_uid;
   int? project_id;
   String? project_name;
-  String? project_brief;
   String? project_icon;
   String? project_header;
   String? project_description;
@@ -16,7 +15,6 @@ class GeneralV2ExperenceDetail {
       this.user_uid,
       this.project_id,
       this.project_name,
-      this.project_brief,
       this.project_icon,
       this.project_description,
       this.project_header,
@@ -27,10 +25,12 @@ class GeneralV2ExperenceDetail {
     user_uid = json['user_uid'];
     project_id = json['project_id'];
     project_name = json['project_name'];
-    project_brief = json['project_brief'];
     project_icon = json['project_icon'];
     project_description = json['project_description'];
     project_header = json['project_header'];
-    project_preview = jsonDecode(json['project_preview']);
+    if (json['project_preview'] == "")
+      project_preview = [];
+    else
+      project_preview = json['project_preview'];
   }
 }

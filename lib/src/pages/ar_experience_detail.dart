@@ -175,14 +175,14 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Container(
-            padding: EdgeInsets.symmetric(vertical: 5),
-            margin: EdgeInsets.only(bottom: 10),
-            height: 360.0,
-            child: new ListView(
-              scrollDirection: Axis.horizontal,
-              children: _buildPreviewImage(),
-            )),
+        // Container(
+        //     padding: EdgeInsets.symmetric(vertical: 5),
+        //     margin: EdgeInsets.only(bottom: 10),
+        //     height: 360.0,
+        //     child: new ListView(
+        //       scrollDirection: Axis.horizontal,
+        //       children: _buildPreviewImage(),
+        //     )),
         TitleText(
           text: "描述",
           fontSize: 20,
@@ -217,19 +217,22 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
 
   List<Widget> _buildPreviewImage() {
     List<Widget> _previews = [];
-    var length = generalExperience.project_preview?.length;
-    for (var i = 0; i < length!; i++) {
-      var widget = ClipRRect(
-        borderRadius: BorderRadius.circular(8.0),
-        child: Padding(
-          padding: EdgeInsets.only(right: 5),
-          child: Image.network(generalExperience.project_preview![i] ?? "",
-              width: 160, height: 320, fit: BoxFit.cover),
-        ),
-      );
-      _previews.add(widget);
+    var length = generalExperience.project_preview!.length;
+    if (length > 0) {
+      for (var i = 0; i < length; i++) {
+        var widget = ClipRRect(
+          borderRadius: BorderRadius.circular(8.0),
+          child: Padding(
+            padding: EdgeInsets.only(right: 5),
+            child: Image.network(generalExperience.project_preview![i] ?? "",
+                width: 160, height: 320, fit: BoxFit.cover),
+          ),
+        );
+        _previews.add(widget);
+      }
+    } else {
+      _previews.add(Container());
     }
-
     return _previews;
   }
 
