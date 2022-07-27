@@ -6,15 +6,11 @@
 	<dict>
 		<key>Data/Managed/EditorToUnityLinkerData.json</key>
 		<data>
-		o4atNFQ8Yfge0dithhS5BYKxYDA=
-		</data>
-		<key>Data/Managed/InputSystemLink.xml</key>
-		<data>
-		JLNcT3tGJ3OSi7TVS55yChGj/xY=
+		qSx0E8py1TeS3sr2Ri33sgZ8jMI=
 		</data>
 		<key>Data/Managed/Metadata/global-metadata.dat</key>
 		<data>
-		bLKGsb8fnkvkV69ksi5po3R6vIA=
+		O5zbYjuxAORr+/KsP/ptThpEWig=
 		</data>
 		<key>Data/Managed/MethodsToPreserve.xml</key>
 		<data>
@@ -26,15 +22,15 @@
 		</data>
 		<key>Data/Managed/SerializedTypes.xml</key>
 		<data>
-		+gfHiIaGQ+HS1mixX3WZNAxUNyc=
+		UN/um6tWTU4AoLIpq4Oh78nPXcQ=
 		</data>
 		<key>Data/Managed/TypesInScenes.xml</key>
 		<data>
-		QkM+XdiEdfAMFQM1JIR4fh2/pXA=
+		YZlrct7YQcmXrB0oE4150xZClSw=
 		</data>
 		<key>Data/Managed/UnityLinkerToEditorData.json</key>
 		<data>
-		sjUyvwmg9BKr/bjvFhgRJrP7bBo=
+		GTtK1S+kiQPyaQx/T+YXbu5PFqQ=
 		</data>
 		<key>Data/Managed/mono/4.0/machine.config</key>
 		<data>
@@ -42,15 +38,19 @@
 		</data>
 		<key>Data/Managed/response.rsp</key>
 		<data>
-		krYkfQvMJ2BZIIn0+mXEVSuNNuY=
+		TgiXGMUgOqy1hs3dvVolmP7lDp4=
 		</data>
 		<key>Data/RuntimeInitializeOnLoads.json</key>
 		<data>
-		kHA8Tci0zmlhf/t6fRuancXimHI=
+		vN8D7+6Bw5ib2wayA0cOREl0WsY=
 		</data>
 		<key>Data/ScriptingAssemblies.json</key>
 		<data>
-		jHF0k8UIE22xObFx+SXisF9Tbps=
+		oqpZ+VnetFiMKo0CMba2rs5Bcao=
+		</data>
+		<key>Data/UnitySubsystems/PxrPlatform/UnitySubsystemsManifest.json</key>
+		<data>
+		ktmTcW0Beb3/+CCWHQwf6eDtaR4=
 		</data>
 		<key>Data/UnitySubsystems/UnityARKit/UnitySubsystemsManifest.json</key>
 		<data>
@@ -62,15 +62,15 @@
 		</data>
 		<key>Data/data.unity3d</key>
 		<data>
-		TrF7XNoT6n04xSCRI+bnCoIojfM=
+		XE73DwutEmlumOxAp0PoD3Ik4jY=
 		</data>
 		<key>Data/unity default resources</key>
 		<data>
-		0z44B99mBhU4inj6hgklmlx0/cY=
+		L9X6scdh0lbbRI+o0o1CrPRnTbI=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		8lYyF0ojaMXPibR5oJ3BoMGpEQU=
+		RKON4mqONm4d4uzzRwmFsLnuEys=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -79,21 +79,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YPJahnHZXRAt5rVVGsfthVJZdxewSM6x5n8OW1NjuXQ=
-			</data>
-		</dict>
-		<key>Data/Managed/InputSystemLink.xml</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			4ZJBVS1hwxJXFCp8vVBdO057EenKGEbow6PuBlq3/qc=
+			UauibWPmlfkXXpzzG/NYPT8hwG0qXJdwIWPuk4gQYVs=
 			</data>
 		</dict>
 		<key>Data/Managed/Metadata/global-metadata.dat</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DtiUtnjSLo1X+26cJ3oaavfp0OrGf0+0IwEVmQk7n6Q=
+			XiRpJCyNsu0nbsTThnxzQtv/Up9UvE0n1FwfWAqpXYM=
 			</data>
 		</dict>
 		<key>Data/Managed/MethodsToPreserve.xml</key>
@@ -114,21 +107,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tq51cnVd0qbUL6LY0Z5MGqLgMhWEpBGPCP7bHTjTWTI=
+			sSelG42vuVbgsvjZ0TSdcP+NBg3o5CGQwnhklpGKFGU=
 			</data>
 		</dict>
 		<key>Data/Managed/TypesInScenes.xml</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			d+lrnCZpfj7eGaIvgywq1c098EssJWOzPjy3Ff+aW2g=
+			YdSbUP92CKeJ5t6Xkwov5Emz1VsN/bI+x5eUQQ33Gs8=
 			</data>
 		</dict>
 		<key>Data/Managed/UnityLinkerToEditorData.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HPjqT9W2/8ZmsOJ8IMQ5oQXDBhYRc1smpOLEySu5RvI=
+			FA1xNDfkvahwHNreJu+KNjohPeh0BZ0yh34U/fMqC+c=
 			</data>
 		</dict>
 		<key>Data/Managed/mono/4.0/machine.config</key>
@@ -142,21 +135,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ugdtgCnQfBzTx5yNto3xaQrE3IvEwLhJ59hCoupCY/0=
+			+hRmHYBrAjcfDRAEuWYI5QQYMY1uanfgW7U1bGdCBSs=
 			</data>
 		</dict>
 		<key>Data/RuntimeInitializeOnLoads.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zARX7q+QvB6VxEXItK4wpmfVhIpjYy+9XBnVRF69J9Y=
+			VeotZ4FxPavJFdAuE+Xy7Ms0YGo768uiFVFuxMQOOD0=
 			</data>
 		</dict>
 		<key>Data/ScriptingAssemblies.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gcYWJz29C/I93Xd6hpOyoflZe87GU/vrRINdnAk7MhA=
+			teTLvihncqQj13rIkprmqWQtpopiglJ+iJUT1cloJOs=
+			</data>
+		</dict>
+		<key>Data/UnitySubsystems/PxrPlatform/UnitySubsystemsManifest.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6EG7pENWdT3uzEeRoecV1S74MaqoPnGWyH7p6F06J30=
 			</data>
 		</dict>
 		<key>Data/UnitySubsystems/UnityARKit/UnitySubsystemsManifest.json</key>
@@ -177,14 +177,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nRlAXJQuQ+5pV6DWMmHFal4bmAmH8I1UMymj2huz6pE=
+			nyjrAtm0vqIZDS3MSgTNYefx7XSNYA1nhP0sL27LCw0=
 			</data>
 		</dict>
 		<key>Data/unity default resources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pfgvGR6FZreaPQ8Bhy0gmJpYLihqBlIcU3a38ywMJ9U=
+			9rLH5j9J5Q8dIBgL+UwvESoxyLoOtr71DxlkuZCMeNs=
 			</data>
 		</dict>
 	</dict>

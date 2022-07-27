@@ -26,6 +26,10 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Recording the audio for video.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save image to photo gallery.</string>
 	<key>io.flutter.embedded_views_preview</key>
 	<string>YES</string>
 	<key>NSCameraUsageDescription</key>

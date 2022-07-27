@@ -1,27 +1,23 @@
 <linker>
-	<assembly fullname="com.Phantoms.ARAlgorithm.Runtime">
-		<type fullname="com.Phantoms.ARAlgorithm.Runtime.Extension.ARCoreFaceMeshExtension" preserve="nothing"/>
-		<type fullname="com.Phantoms.ARAlgorithm.Runtime.Utility.SceneGrab" preserve="nothing"/>
-	</assembly>
-	<assembly fullname="com.Phantoms.PackageTools.Runtime">
-		<type fullname="UnityAsyncAwaitUtil.AsyncCoroutineRunner" preserve="nothing"/>
-	</assembly>
-	<assembly fullname="com.Phantoms.SDKEntry.Runtime">
-		<type fullname="com.Phantoms.SDKEntry.Runtime.SDKEntryPoint" preserve="nothing"/>
-		<type fullname="com.Phantoms.SDKEntry.Runtime.SDKVersion" preserve="nothing"/>
-		<type fullname="Simulater" preserve="nothing"/>
-	</assembly>
 	<assembly fullname="com.Phantoms.UIExtension.Runtime">
-		<type fullname="com.PhantomsXR.UIExtension.BakingCamera" preserve="nothing"/>
+		<type fullname="com.PhantomsXR.Recorders.Runtime.RecordButton" preserve="nothing"/>
 		<type fullname="com.PhantomsXR.UIExtension.CanvasSafeArea" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="com.PhantomsXR.MirrorExtension.Runtime">
 		<type fullname="com.PhantomsXR.MirrorExtension.Runtime.ARMODNetworkManager" preserve="nothing"/>
 		<type fullname="com.PhantomsXR.MirrorExtension.Runtime.LocalPlayerBinding" preserve="nothing"/>
 	</assembly>
+	<assembly fullname="com.PhantomsXR.Recorders.Runtime">
+		<type fullname="com.PhantomsXR.Recorders.Runtime.XRFrameGrabber" preserve="nothing"/>
+	</assembly>
 	<assembly fullname="com.Phatoms.Immersal.Runtime">
 		<type fullname="Immersal.AR.ARLocalizer" preserve="nothing"/>
 		<type fullname="Immersal.ImmersalSDK" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="HandheldARModule.Runtime">
+		<type fullname="HandheldARModule.Runtime.Extension.ARCoreFaceMeshExtension" preserve="nothing"/>
+		<type fullname="HandheldARModule.Runtime.Extension.ARFeatheredPlaneMeshVisualizer" preserve="nothing"/>
+		<type fullname="HandheldARModule.Runtime.Utility.SceneGrab" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="IngameDebugConsole.Runtime">
 		<type fullname="IngameDebugConsole.DebugLogItem" preserve="nothing"/>
@@ -38,6 +34,11 @@
 	<assembly fullname="Mirror">
 		<type fullname="kcp2k.KcpTransport" preserve="nothing"/>
 		<type fullname="Mirror.NetworkIdentity" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="SDKEntry.Runtime">
+		<type fullname="SDKEntry.Runtime.SDKEntryPoint" preserve="nothing"/>
+		<type fullname="SDKEntry.Runtime.SDKInformation" preserve="nothing"/>
+		<type fullname="Simulater" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Unity.InputSystem">
 		<type fullname="UnityEngine.InputSystem.InputSettings" preserve="nothing"/>
@@ -109,10 +110,36 @@
 	</assembly>
 	<assembly fullname="Unity.XR.Interaction.Toolkit">
 		<type fullname="UnityEngine.XR.Interaction.Toolkit.AR.ARGestureInteractor" preserve="nothing"/>
+		<type fullname="UnityEngine.XR.Interaction.Toolkit.InteractionLayerSettings" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Unity.XR.Management">
 		<type fullname="UnityEngine.XR.Management.XRGeneralSettings" preserve="nothing"/>
 		<type fullname="UnityEngine.XR.Management.XRManagerSettings" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="Unity.XR.Oculus">
+		<type fullname="Unity.XR.Oculus.OculusSettings" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="Unity.XR.OpenXR">
+		<type fullname="UnityEngine.XR.OpenXR.Features.Interactions.EyeGazeInteraction" preserve="nothing"/>
+		<type fullname="UnityEngine.XR.OpenXR.Features.Interactions.HTCViveControllerProfile" preserve="nothing"/>
+		<type fullname="UnityEngine.XR.OpenXR.Features.Interactions.KHRSimpleControllerProfile" preserve="nothing"/>
+		<type fullname="UnityEngine.XR.OpenXR.Features.Interactions.MicrosoftHandInteraction" preserve="nothing"/>
+		<type fullname="UnityEngine.XR.OpenXR.Features.Interactions.MicrosoftMotionControllerProfile" preserve="nothing"/>
+		<type fullname="UnityEngine.XR.OpenXR.Features.Interactions.OculusTouchControllerProfile" preserve="nothing"/>
+		<type fullname="UnityEngine.XR.OpenXR.Features.Interactions.ValveIndexControllerProfile" preserve="nothing"/>
+		<type fullname="UnityEngine.XR.OpenXR.OpenXRSettings" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="Unity.XR.OpenXR.Features.ConformanceAutomation">
+		<type fullname="UnityEngine.XR.OpenXR.Features.ConformanceAutomation.ConformanceAutomationFeature" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="Unity.XR.OpenXR.Features.MockRuntime">
+		<type fullname="UnityEngine.XR.OpenXR.Features.Mock.MockRuntime" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="Unity.XR.OpenXR.Features.OculusQuestSupport">
+		<type fullname="UnityEngine.XR.OpenXR.Features.OculusQuestSupport.OculusQuestFeature" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="Unity.XR.OpenXR.Features.RuntimeDebugger">
+		<type fullname="UnityEngine.XR.OpenXR.Features.RuntimeDebugger.RuntimeDebuggerOpenXRFeature" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="UnityEngine">
 		<type fullname="UnityEditor.AudioManager" preserve="nothing"/>
@@ -140,8 +167,10 @@
 		<type fullname="UnityEngine.GameObject" preserve="nothing"/>
 		<type fullname="UnityEngine.LightingSettings" preserve="nothing"/>
 		<type fullname="UnityEngine.LightmapSettings" preserve="nothing"/>
+		<type fullname="UnityEngine.LightProbes" preserve="nothing"/>
 		<type fullname="UnityEngine.LineRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.Material" preserve="nothing"/>
+		<type fullname="UnityEngine.Mesh" preserve="nothing"/>
 		<type fullname="UnityEngine.MeshCollider" preserve="nothing"/>
 		<type fullname="UnityEngine.MeshFilter" preserve="nothing"/>
 		<type fullname="UnityEngine.MeshRenderer" preserve="nothing"/>
@@ -155,6 +184,7 @@
 		<type fullname="UnityEngine.Rendering.GraphicsSettings" preserve="nothing"/>
 		<type fullname="UnityEngine.RenderSettings" preserve="nothing"/>
 		<type fullname="UnityEngine.Shader" preserve="nothing"/>
+		<type fullname="UnityEngine.ShaderVariantCollection" preserve="nothing"/>
 		<type fullname="UnityEngine.Sprite" preserve="nothing"/>
 		<type fullname="UnityEngine.TextAsset" preserve="nothing"/>
 		<type fullname="UnityEngine.Texture" preserve="nothing"/>

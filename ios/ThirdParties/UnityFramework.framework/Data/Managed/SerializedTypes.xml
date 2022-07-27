@@ -1,13 +1,13 @@
 <linker>
-	<assembly fullname="com.Phantoms.SDKConfigures.Runtime">
-		<type fullname="com.Phantoms.SDKConfigures.Runtime.CustomConfig" preserve="nothing" serialized="true"/>
-		<type fullname="com.Phantoms.SDKConfigures.Runtime.DashboardConfig" preserve="nothing" serialized="true"/>
-		<type fullname="com.Phantoms.SDKConfigures.Runtime.EngineType" preserve="nothing" serialized="true"/>
-		<type fullname="com.Phantoms.SDKConfigures.Runtime.ImageCloudRecognizerConfig" preserve="nothing" serialized="true"/>
-		<type fullname="com.Phantoms.SDKConfigures.Runtime.SDKConfiguration" preserve="nothing" serialized="true"/>
-	</assembly>
 	<assembly fullname="Mirror.Components">
 		<type fullname="Mirror.Discovery.ServerFoundUnityEvent" preserve="nothing" serialized="true"/>
+	</assembly>
+	<assembly fullname="Phantoms.Models.Runtime">
+		<type fullname="com.phantoms.models.Runtime.CustomConfig" preserve="nothing" serialized="true"/>
+		<type fullname="com.phantoms.models.Runtime.DashboardConfig" preserve="nothing" serialized="true"/>
+		<type fullname="com.phantoms.models.Runtime.EngineType" preserve="nothing" serialized="true"/>
+		<type fullname="com.phantoms.models.Runtime.ImageCloudRecognizerConfig" preserve="nothing" serialized="true"/>
+		<type fullname="com.phantoms.models.Runtime.SDKConfiguration" preserve="nothing" serialized="true"/>
 	</assembly>
 	<assembly fullname="Unity.RenderPipelines.Core.Runtime">
 		<type fullname="UnityEngine.Rendering.UI.DebugUIPrefabBundle" preserve="nothing" serialized="true"/>
@@ -31,6 +31,7 @@
 	<assembly fullname="Unity.XR.Interaction.Toolkit">
 		<type fullname="UnityEngine.XR.Interaction.Toolkit.HoverEnterEvent" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.XR.Interaction.Toolkit.HoverExitEvent" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.XR.Interaction.Toolkit.InteractionLayerMask" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.XR.Interaction.Toolkit.SelectEnterEvent" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.XR.Interaction.Toolkit.SelectExitEvent" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent" preserve="nothing" serialized="true"/>

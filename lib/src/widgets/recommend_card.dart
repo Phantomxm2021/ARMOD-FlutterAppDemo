@@ -14,7 +14,7 @@ class RecommandCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          AppData.seleted_showcase_uid = recommandItem.showcase_uid!;
+          AppData.seleted_project_id = recommandItem.project_id!;
           Navigator.of(context).pushNamed('/detail');
           if (onSelected != null) onSelected!(recommandItem);
         },
@@ -25,11 +25,11 @@ class RecommandCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TitleText(
-                  text: recommandItem.showcase_name!,
+                  text: recommandItem.project_name!,
                   fontSize: 20,
                 ),
                 SubTitleText(
-                  text: recommandItem.showcase_brief!,
+                  text: recommandItem.project_brief!,
                   fontSize: 12,
                   color: LightColor.grey,
                 ),
@@ -37,7 +37,7 @@ class RecommandCard extends StatelessWidget {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: NetworkImage(recommandItem.showcase_header!),
+                        image: NetworkImage(recommandItem.project_header!),
                         fit: BoxFit.cover),
                     color: LightColor.background,
                     borderRadius: BorderRadius.all(Radius.circular(5)),

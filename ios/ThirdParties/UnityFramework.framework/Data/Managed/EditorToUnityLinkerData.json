@@ -9,34 +9,6 @@
             "usedInScenes": []
         },
         {
-            "managedAssemblyName": "com.Phantoms.ARAlgorithm.Runtime.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "com.Phantoms.ARAlgorithm.Runtime.Extension.ARCoreFaceMeshExtension",
-            "moduleName": "",
-            "usedInScenes": []
-        },
-        {
-            "managedAssemblyName": "com.Phantoms.ARAlgorithm.Runtime.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "com.Phantoms.ARAlgorithm.Runtime.Utility.SceneGrab",
-            "moduleName": "",
-            "usedInScenes": []
-        },
-        {
-            "managedAssemblyName": "com.Phantoms.SDKEntry.Runtime.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "com.Phantoms.SDKEntry.Runtime.SDKEntryPoint",
-            "moduleName": "",
-            "usedInScenes": []
-        },
-        {
-            "managedAssemblyName": "com.Phantoms.SDKEntry.Runtime.dll",
-            "nativeClass": "",
-            "fullManagedTypeName": "com.Phantoms.SDKEntry.Runtime.SDKVersion",
-            "moduleName": "",
-            "usedInScenes": []
-        },
-        {
             "managedAssemblyName": "com.PhantomsXR.MirrorExtension.Runtime.dll",
             "nativeClass": "",
             "fullManagedTypeName": "com.PhantomsXR.MirrorExtension.Runtime.ARMODNetworkManager",
@@ -53,7 +25,14 @@
         {
             "managedAssemblyName": "com.Phantoms.UIExtension.Runtime.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "com.PhantomsXR.UIExtension.BakingCamera",
+            "fullManagedTypeName": "com.PhantomsXR.Recorders.Runtime.RecordButton",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "com.PhantomsXR.Recorders.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "com.PhantomsXR.Recorders.Runtime.XRFrameGrabber",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -98,6 +77,27 @@
             "nativeClass": "GlobalGameManager",
             "fullManagedTypeName": "",
             "moduleName": "Core",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "HandheldARModule.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "HandheldARModule.Runtime.Extension.ARCoreFaceMeshExtension",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "HandheldARModule.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "HandheldARModule.Runtime.Extension.ARFeatheredPlaneMeshVisualizer",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "HandheldARModule.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "HandheldARModule.Runtime.Utility.SceneGrab",
+            "moduleName": "",
             "usedInScenes": []
         },
         {
@@ -239,6 +239,20 @@
             "usedInScenes": []
         },
         {
+            "managedAssemblyName": "SDKEntry.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "SDKEntry.Runtime.SDKEntryPoint",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "SDKEntry.Runtime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "SDKEntry.Runtime.SDKInformation",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
             "managedAssemblyName": "",
             "nativeClass": "ShaderNameRegistry",
             "fullManagedTypeName": "",
@@ -246,7 +260,7 @@
             "usedInScenes": []
         },
         {
-            "managedAssemblyName": "com.Phantoms.SDKEntry.Runtime.dll",
+            "managedAssemblyName": "SDKEntry.Runtime.dll",
             "nativeClass": "",
             "fullManagedTypeName": "Simulater",
             "moduleName": "",
@@ -274,9 +288,9 @@
             "usedInScenes": []
         },
         {
-            "managedAssemblyName": "com.Phantoms.PackageTools.Runtime.dll",
+            "managedAssemblyName": "Unity.XR.Oculus.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "UnityAsyncAwaitUtil.AsyncCoroutineRunner",
+            "fullManagedTypeName": "Unity.XR.Oculus.OculusSettings",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -308,8 +322,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Artwork/Scenes/Release/Clear.unity",
-                "Assets/Artwork/Scenes/Release/Initilizer.unity",
-                "Assets/Artwork/Scenes/Release/Main.unity"
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -367,8 +380,7 @@
             "fullManagedTypeName": "UnityEngine.AudioBehaviour",
             "moduleName": "Audio",
             "usedInScenes": [
-                "Assets/Artwork/Scenes/Release/Initilizer.unity",
-                "Assets/Artwork/Scenes/Release/Main.unity"
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -377,8 +389,7 @@
             "fullManagedTypeName": "UnityEngine.AudioListener",
             "moduleName": "Audio",
             "usedInScenes": [
-                "Assets/Artwork/Scenes/Release/Initilizer.unity",
-                "Assets/Artwork/Scenes/Release/Main.unity"
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -388,8 +399,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Artwork/Scenes/Release/Clear.unity",
-                "Assets/Artwork/Scenes/Release/Initilizer.unity",
-                "Assets/Artwork/Scenes/Release/Main.unity"
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -399,8 +409,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Artwork/Scenes/Release/Clear.unity",
-                "Assets/Artwork/Scenes/Release/Initilizer.unity",
-                "Assets/Artwork/Scenes/Release/Main.unity"
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -446,8 +455,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Artwork/Scenes/Release/Clear.unity",
-                "Assets/Artwork/Scenes/Release/Initilizer.unity",
-                "Assets/Artwork/Scenes/Release/Main.unity"
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -482,8 +490,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Artwork/Scenes/Release/Clear.unity",
-                "Assets/Artwork/Scenes/Release/Initilizer.unity",
-                "Assets/Artwork/Scenes/Release/Main.unity"
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -531,6 +538,15 @@
         },
         {
             "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "LightProbes",
+            "fullManagedTypeName": "UnityEngine.LightProbes",
+            "moduleName": "Core",
+            "usedInScenes": [
+                "Assets/Artwork/Scenes/Release/Main.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
             "nativeClass": "LineRenderer",
             "fullManagedTypeName": "UnityEngine.LineRenderer",
             "moduleName": "Core",
@@ -546,6 +562,15 @@
             "usedInScenes": [
                 "Assets/Artwork/Scenes/Release/Initilizer.unity",
                 "Assets/Artwork/Scenes/Release/Main.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "Mesh",
+            "fullManagedTypeName": "UnityEngine.Mesh",
+            "moduleName": "Core",
+            "usedInScenes": [
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -582,8 +607,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Artwork/Scenes/Release/Clear.unity",
-                "Assets/Artwork/Scenes/Release/Initilizer.unity",
-                "Assets/Artwork/Scenes/Release/Main.unity"
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -922,6 +946,15 @@
         },
         {
             "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "ShaderVariantCollection",
+            "fullManagedTypeName": "UnityEngine.ShaderVariantCollection",
+            "moduleName": "Core",
+            "usedInScenes": [
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
             "nativeClass": "Sprite",
             "fullManagedTypeName": "UnityEngine.Sprite",
             "moduleName": "Core",
@@ -936,8 +969,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Artwork/Scenes/Release/Clear.unity",
-                "Assets/Artwork/Scenes/Release/Initilizer.unity",
-                "Assets/Artwork/Scenes/Release/Main.unity"
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -969,8 +1001,7 @@
             "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Artwork/Scenes/Release/Clear.unity",
-                "Assets/Artwork/Scenes/Release/Initilizer.unity",
-                "Assets/Artwork/Scenes/Release/Main.unity"
+                "Assets/Artwork/Scenes/Release/Initilizer.unity"
             ]
         },
         {
@@ -1205,6 +1236,13 @@
             "usedInScenes": []
         },
         {
+            "managedAssemblyName": "Unity.XR.Interaction.Toolkit.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.Interaction.Toolkit.InteractionLayerSettings",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
             "managedAssemblyName": "Unity.XR.Management.dll",
             "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.XR.Management.XRGeneralSettings",
@@ -1215,6 +1253,90 @@
             "managedAssemblyName": "Unity.XR.Management.dll",
             "nativeClass": "",
             "fullManagedTypeName": "UnityEngine.XR.Management.XRManagerSettings",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.Features.ConformanceAutomation.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.ConformanceAutomation.ConformanceAutomationFeature",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.Interactions.EyeGazeInteraction",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.Interactions.HTCViveControllerProfile",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.Interactions.KHRSimpleControllerProfile",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.Interactions.MicrosoftHandInteraction",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.Interactions.MicrosoftMotionControllerProfile",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.Interactions.OculusTouchControllerProfile",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.Interactions.ValveIndexControllerProfile",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.Features.MockRuntime.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.Mock.MockRuntime",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.Features.OculusQuestSupport.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.OculusQuestSupport.OculusQuestFeature",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.Features.RuntimeDebugger.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.Features.RuntimeDebugger.RuntimeDebuggerOpenXRFeature",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.XR.OpenXR.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "UnityEngine.XR.OpenXR.OpenXRSettings",
             "moduleName": "",
             "usedInScenes": []
         }
@@ -1249,14 +1371,6 @@
             "qualifiedName": "BuildReporting::AudioBuildInfo",
             "nativeNamespace": "BuildReporting",
             "module": "BuildReportingEditor",
-            "baseName": "Object",
-            "baseModule": "Core"
-        },
-        {
-            "name": "AutoStreamingSettings",
-            "qualifiedName": "AutoStreamingSettings",
-            "nativeNamespace": "",
-            "module": "Editor",
             "baseName": "Object",
             "baseModule": "Core"
         },
@@ -2493,6 +2607,22 @@
             "baseModule": "Editor"
         },
         {
+            "name": "RoslynAdditionalFileImporter",
+            "qualifiedName": "RoslynAdditionalFileImporter",
+            "nativeNamespace": "",
+            "module": "Core",
+            "baseName": "AssetImporter",
+            "baseModule": "Editor"
+        },
+        {
+            "name": "RoslynAnalyzerConfigImporter",
+            "qualifiedName": "RoslynAnalyzerConfigImporter",
+            "nativeNamespace": "",
+            "module": "Core",
+            "baseName": "AssetImporter",
+            "baseModule": "Editor"
+        },
+        {
             "name": "RuleSetFileImporter",
             "qualifiedName": "RuleSetFileImporter",
             "nativeNamespace": "",
@@ -2935,6 +3065,22 @@
         {
             "name": "RayTracingShader",
             "qualifiedName": "RayTracingShader",
+            "nativeNamespace": "",
+            "module": "Core",
+            "baseName": "NamedObject",
+            "baseModule": "Core"
+        },
+        {
+            "name": "RoslynAdditionalFileAsset",
+            "qualifiedName": "RoslynAdditionalFileAsset",
+            "nativeNamespace": "",
+            "module": "Core",
+            "baseName": "NamedObject",
+            "baseModule": "Core"
+        },
+        {
+            "name": "RoslynAnalyzerConfigAsset",
+            "qualifiedName": "RoslynAnalyzerConfigAsset",
             "nativeNamespace": "",
             "module": "Core",
             "baseName": "NamedObject",
@@ -3629,6 +3775,14 @@
             "baseModule": "Core"
         },
         {
+            "name": "VideoBuildInfo",
+            "qualifiedName": "BuildReporting::VideoBuildInfo",
+            "nativeNamespace": "BuildReporting",
+            "module": "BuildReportingEditor",
+            "baseName": "Object",
+            "baseModule": "Core"
+        },
+        {
             "name": "Vector3f",
             "qualifiedName": "Vector3f",
             "nativeNamespace": "",
@@ -3727,11 +3881,9 @@
     ],
     "forceIncludeModules": [],
     "forceExcludeModules": [
-        "AutoStreaming",
         "ClusterInput",
         "ClusterRenderer",
         "NVIDIA",
-        "UaaLAnalytics",
         "Umbra",
         "VirtualTexturing"
     ]

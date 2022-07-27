@@ -65,7 +65,13 @@ class ARViewState extends State<ARView> {
     return new WillPopScope(
       onWillPop: _onBackPressed,
       child: new Scaffold(
-        body: Stack(
+        body: Card(
+             margin: const EdgeInsets.all(0),
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child:       Stack(
           children: [
             ARMODWidget(
               onARMODCreated: onARMODCreate,
@@ -83,11 +89,12 @@ class ARViewState extends State<ARView> {
               onThrowException: onThrowException,
               onTryAcquireInformation: onTryAcquireInformation,
               onUpdateLoadingProgress: onUpdateLoadingProgress,
-              fullscreen: true,
+              useAndroidViewSurface: false,
             ),
             _appBar()
           ],
         ),
+        )
       ),
     );
   }
@@ -150,18 +157,17 @@ class ARViewState extends State<ARView> {
   }
 
   void onARMODLaunch() {
+    //Set the app orientation
     var orientationId =
         MediaQuery.of(context).orientation == Orientation.portrait ? '1' : '2';
     _armodWidgetController.setDeivcesOrientation(orientationId);
 
+    //Init XRMOD Engine
     _armodWidgetController.initARMOD(
-        '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://weacw.com/api/v1/getarexperience","token":"${PhantomsXRConfig.AppToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
+        '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://phantomsxr.cn/api/v2/getarresources","token":"${PhantomsXRConfig.AppToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
 
-    Future.delayed(
-        Duration(milliseconds: 125),
-        () => {
-              _armodWidgetController.fetchProject(AppData.ar_experience_uid),
-            });
+    //Fetch the data from XRMOD Cloud
+    _armodWidgetController.fetchProject(AppData.ar_experience_uid);
   }
 
   void onThrowException(String errorMsg, int erorCode) {
@@ -171,17 +177,13 @@ class ARViewState extends State<ARView> {
 
   void onARMODExit() {
     //Wait to release all asset
-    Future.delayed(
-        Duration(milliseconds: 500),
-        () => {
-              _onWillPop = true,
-
-              //Close by AR-Experiences
-              if (!_isClosedByBack) Navigator.of(context).pop(true),
-            });
+    _onWillPop = true;
+    //Close by AR-Experiences
+    if (!_isClosedByBack) Navigator.of(context).pop(true);
   }
 
   void onUpdateLoadingProgress(progress) {
+    print("Load progress:$progress");
     EasyLoading.showProgress(progress,
         status: '${(progress * 100).toStringAsFixed(0)}%');
   }
@@ -199,6 +201,7 @@ class ARViewState extends State<ARView> {
   }
 
   void onRemoveLoadingOverlay() {
+    print("onRemoveLoadingOverlay");
     EasyLoading.dismiss();
   }
 
@@ -217,7 +220,9 @@ class ARViewState extends State<ARView> {
         "You need to install the ARCore service!", false);
   }
 
-  void onSdkInitialized() {}
+  void onSdkInitialized() {
+    print("\nSdkInitialized\n");
+  }
 
   void onOpenBuiltInBrowser(url) {}
 
