@@ -60,7 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 return false;
               },
               child: ScrollSnapList(
-                // margin: EdgeInsets.only(top: 5),
                 onItemFocus: _onItemFocus,
                 itemSize: 340,
                 itemBuilder: _buildListItem,
@@ -123,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   ///Used to get all recommended showcases of the current APP
   Future<List<RecommandARExperience>> queryRecommand() async {
-    var result = await Utils.queryPhantomCloud("getshowcaserecommends", null);
+    var result = await Utils.queryPhantomCloud("getrecommendslist","POST", null);
     List<dynamic> recommandItems = result['data'];
     List<RecommandARExperience> recommandARExperiences = [];
     for (var idx = 0; idx < recommandItems.length; idx++) {
@@ -135,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   ///Get all showcases
   Future<List<GeneralExperence>> queryGeneralExperence() async {
-    var result = await Utils.queryPhantomCloud('getshowcaselist', null);
+    var result = await Utils.queryPhantomCloud('getarexperiencelist',"GET", null);
     List<dynamic> generalItems = result['data'];
     List<GeneralExperence> generalExperences = [];
     for (var idx = 0; idx < generalItems.length; idx++) {

@@ -1,27 +1,27 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_armod_widget (0.0.3):
+  - flutter_armod_widget (2.0.0):
     - Flutter
-  - path_provider (0.0.1):
+  - path_provider_ios (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_armod_widget (from `.symlinks/plugins/flutter_armod_widget/ios`)
-  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
   flutter_armod_widget:
     :path: ".symlinks/plugins/flutter_armod_widget/ios"
-  path_provider:
-    :path: ".symlinks/plugins/path_provider/ios"
+  path_provider_ios:
+    :path: ".symlinks/plugins/path_provider_ios/ios"
 
 SPEC CHECKSUMS:
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
-  flutter_armod_widget: fa19a3ff7a3ee7310e3f6260c28d163610fb4fdb
-  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
+  flutter_armod_widget: 73ea38a5c0479a3d9c34c20558d9f93561938904
+  path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
 
 PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
 

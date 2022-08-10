@@ -17,6 +17,8 @@
 		B332665E26E6217A0044EA7B /* UnityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3642A8A26E0CAD00036BFF8 /* UnityFramework.framework */; };
 		B332665F26E6217A0044EA7B /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B3642A8A26E0CAD00036BFF8 /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B332666226E621E70044EA7B /* ARMODCallbackAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B332666126E621E70044EA7B /* ARMODCallbackAPI.swift */; };
+		B37C082628912CB200A5ECAF /* NatCorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37C082528912CB200A5ECAF /* NatCorder.framework */; };
+		B37C082728912CB200A5ECAF /* NatCorder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B37C082528912CB200A5ECAF /* NatCorder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE13F701513330C2DF85FB61 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54568BD673B8F53F89DDA2DB /* Pods_Runner.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B332665F26E6217A0044EA7B /* UnityFramework.framework in Embed Frameworks */,
+				B37C082728912CB200A5ECAF /* NatCorder.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +58,7 @@
 		B332665C26E621630044EA7B /* ThirdParties */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ThirdParties; sourceTree = "<group>"; };
 		B332666126E621E70044EA7B /* ARMODCallbackAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMODCallbackAPI.swift; sourceTree = "<group>"; };
 		B3642A8A26E0CAD00036BFF8 /* UnityFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityFramework.framework; path = ThirdParties/UnityFramework.framework; sourceTree = "<group>"; };
+		B37C082528912CB200A5ECAF /* NatCorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NatCorder.framework; path = ThirdParties/NatCorder.framework; sourceTree = "<group>"; };
 		C2E6F909FD3F72F1059917C5 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B37C082628912CB200A5ECAF /* NatCorder.framework in Frameworks */,
 				CE13F701513330C2DF85FB61 /* Pods_Runner.framework in Frameworks */,
 				B332665E26E6217A0044EA7B /* UnityFramework.framework in Frameworks */,
 			);
@@ -76,6 +81,7 @@
 			children = (
 				54568BD673B8F53F89DDA2DB /* Pods_Runner.framework */,
 				B332665826E61DB30044EA7B /* UnityFramework.framework */,
+				B37C082528912CB200A5ECAF /* NatCorder.framework */,
 				B3642A8A26E0CAD00036BFF8 /* UnityFramework.framework */,
 			);
 			name = Frameworks;
@@ -318,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -356,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
@@ -397,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -441,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -453,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -491,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;

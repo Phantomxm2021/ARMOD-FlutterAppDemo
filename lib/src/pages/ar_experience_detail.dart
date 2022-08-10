@@ -78,8 +78,8 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
 
   ///Get all showcases
   Future<GeneralExperenceDetail> queryGeneralExperenceDetail() async {
-    var result = await Utils.queryPhantomCloud('getshowcase',
-        {"showcase_uid": AppData.seleted_showcase_uid.toString()});
+    var result = await Utils.queryPhantomCloud('getarexperience',"POST",
+        {"project_id": AppData.seleted_project_id.toString()});
     return GeneralExperenceDetail.fromJson(result['data']);
   }
 
@@ -98,7 +98,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
           height: AppTheme.fullHeight(context) * 0.5,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(generalExperience.showcase_header ?? ""),
+                  image: NetworkImage(generalExperience.project_header ?? ""),
                   fit: BoxFit.cover)),
         ));
   }
@@ -147,7 +147,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           TitleText(
-                              text: generalExperience.showcase_name ?? "",
+                              text: generalExperience.project_name ?? "",
                               fontSize: 25),
                         ],
                       ),
@@ -173,7 +173,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
           fontSize: 14,
         ),
         SizedBox(height: 20),
-        Text(generalExperience.showcase_brief ?? ""),
+        Text(generalExperience.project_description ?? ""),
       ],
     );
   }
@@ -184,7 +184,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
         if (luanched_ar) return;
         luanched_ar = true;
         AppData.ar_experience_uid =
-            generalExperience.arexperience_uid.toString();
+            generalExperience.project_id.toString();
         Navigator.of(context).pushNamed("/ar_view");
         luanched_ar = false;
       },
