@@ -6,15 +6,15 @@ import 'package:armod_flutter_store/src/themes/light_color.dart';
 import 'package:armod_flutter_store/src/widgets/title_text.dart';
 
 class RecommandCard extends StatelessWidget {
-  final RecommandARExperience recommandItem;
-  final ValueChanged<RecommandARExperience>? onSelected;
+  final RecommandProjectDetail recommandItem;
+  final ValueChanged<RecommandProjectDetail>? onSelected;
   RecommandCard({Key? key, required this.recommandItem, this.onSelected})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          AppData.seleted_project_id = recommandItem.project_id!;
+          AppData.seleted_project_uid = recommandItem.projectUid!;
           Navigator.of(context).pushNamed('/detail');
           if (onSelected != null) onSelected!(recommandItem);
         },
@@ -25,11 +25,11 @@ class RecommandCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TitleText(
-                  text: recommandItem.project_name!,
+                  text: recommandItem.projectName!,
                   fontSize: 20,
                 ),
                 SubTitleText(
-                  text: recommandItem.project_brief!,
+                  text: recommandItem.projectBrief!,
                   fontSize: 12,
                   color: LightColor.grey,
                 ),
@@ -37,7 +37,7 @@ class RecommandCard extends StatelessWidget {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: NetworkImage(recommandItem.project_header!),
+                        image: NetworkImage(recommandItem.projectHeader!),
                         fit: BoxFit.cover),
                     color: LightColor.background,
                     borderRadius: BorderRadius.all(Radius.circular(5)),

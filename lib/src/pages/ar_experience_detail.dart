@@ -24,12 +24,13 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
   @override
   void initState() {
     super.initState();
+    startToPullRecommand();
+
     controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     animation = Tween<double>(begin: 0, end: 1).animate(
         CurvedAnimation(parent: controller, curve: Curves.easeInToLinear));
     controller.forward();
-    startToPullRecommand();
   }
 
   @override
@@ -78,9 +79,10 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
 
   ///Get all showcases
   Future<GeneralExperenceDetail> queryGeneralExperenceDetail() async {
-    var result = await Utils.queryPhantomCloud('getarexperience',"POST",
-        {"project_id": AppData.seleted_project_id.toString()});
-    return GeneralExperenceDetail.fromJson(result['data']);
+    var result = await Utils.queryPhantomCloud('getarprojectdetail',"GET",
+        {"project_uid": AppData.seleted_project_uid.toString()});
+     
+    return GeneralExperenceDetail.fromJson(result);
   }
 
   Widget _arExperienceImage() {
@@ -98,7 +100,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
           height: AppTheme.fullHeight(context) * 0.5,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(generalExperience.project_header ?? ""),
+                  image: NetworkImage(generalExperience.data?.projectHeader??""),
                   fit: BoxFit.cover)),
         ));
   }
@@ -147,7 +149,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           TitleText(
-                              text: generalExperience.project_name ?? "",
+                              text: generalExperience.data?.projectName ?? "Project Name",
                               fontSize: 25),
                         ],
                       ),
@@ -173,7 +175,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
           fontSize: 14,
         ),
         SizedBox(height: 20),
-        Text(generalExperience.project_description ?? ""),
+        Text(generalExperience.data?.projectDescription ?? "Description"),
       ],
     );
   }
@@ -183,8 +185,7 @@ class _ARExperienceDetailPageState extends State<ARExperienceDetailPage>
       onPressed: () {
         if (luanched_ar) return;
         luanched_ar = true;
-        AppData.ar_experience_uid =
-            generalExperience.project_id.toString();
+        AppData.ar_experience_uid = generalExperience.data?.projectUid.toString() ?? "-1";
         Navigator.of(context).pushNamed("/ar_view");
         luanched_ar = false;
       },

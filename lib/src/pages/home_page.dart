@@ -22,8 +22,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   GlobalKey<ScrollSnapListState> sslKey = GlobalKey();
-  late List<RecommandARExperience> recommandARExperience = [];
-  late List<GeneralExperence> generalExperience = [];
+  late List<RecommandProjectDetail> recommandARExperience = [];
+  late List<GeneralExperenceData> generalExperience = [];
 
   @override
   void initState() {
@@ -121,24 +121,24 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   ///Used to get all recommended showcases of the current APP
-  Future<List<RecommandARExperience>> queryRecommand() async {
-    var result = await Utils.queryPhantomCloud("getrecommendslist","POST", null);
-    List<dynamic> recommandItems = result['data'];
-    List<RecommandARExperience> recommandARExperiences = [];
+  Future<List<RecommandProjectDetail>> queryRecommand() async {
+    var result = await Utils.queryPhantomCloud("getrecommandlist","GET", null);
+    List<dynamic> recommandItems = result['data']['all_project'];
+    List<RecommandProjectDetail> recommandARExperiences = [];
     for (var idx = 0; idx < recommandItems.length; idx++) {
       recommandARExperiences
-          .add(RecommandARExperience.fromJson(recommandItems[idx]));
+          .add(RecommandProjectDetail.fromJson(recommandItems[idx]));
     }
     return recommandARExperiences;
   }
 
   ///Get all showcases
-  Future<List<GeneralExperence>> queryGeneralExperence() async {
-    var result = await Utils.queryPhantomCloud('getarexperiencelist',"GET", null);
-    List<dynamic> generalItems = result['data'];
-    List<GeneralExperence> generalExperences = [];
+  Future<List<GeneralExperenceData>> queryGeneralExperence() async {
+    var result = await Utils.queryPhantomCloud('getarprojectlist',"GET", null);
+    List<dynamic> generalItems = result['data']['all_project'];
+    List<GeneralExperenceData> generalExperences = [];
     for (var idx = 0; idx < generalItems.length; idx++) {
-      generalExperences.add(GeneralExperence.fromJson(generalItems[idx]));
+      generalExperences.add(GeneralExperenceData.fromJson(generalItems[idx]));
     }
     return generalExperences;
   }

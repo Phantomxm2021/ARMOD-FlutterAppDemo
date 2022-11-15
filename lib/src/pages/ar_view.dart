@@ -87,6 +87,7 @@ class ARViewState extends State<ARView> {
               onRemoveLoadingOverlay: onRemoveLoadingOverlay,
               onSdkInitialized: onSdkInitialized,
               onThrowException: onThrowException,
+              onMessageReceived: onMessageReceived,
               onTryAcquireInformation: onTryAcquireInformation,
               onUpdateLoadingProgress: onUpdateLoadingProgress,
               useAndroidViewSurface: false,
@@ -164,8 +165,7 @@ class ARViewState extends State<ARView> {
 
     //Init XRMOD Engine
     _armodWidgetController.initARMOD(
-        '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://phantomsxr.cn/api/v2/getarresources","token":"${PhantomsXRConfig.AppToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
-
+        '{"EngineType":"Native","dashboardConfig":{"dashboardGateway":"https://phantomsxr.com/api/v2/client/getarresources","token":"${PhantomsXRConfig.AppToken}","timeout":30,"maximumDownloadSize":30},"imageCloudRecognizerConfig":{"gateway":"","maximumOfRetries":5,"frequencyOfScan":5}}');
     //Fetch the data from XRMOD Cloud
     _armodWidgetController.fetchProject(AppData.ar_experience_uid);
   }
@@ -223,6 +223,8 @@ class ARViewState extends State<ARView> {
   void onSdkInitialized() {
     print("\nSdkInitialized\n");
   }
+
+  void onMessageReceived(data){}
 
   void onOpenBuiltInBrowser(url) {}
 

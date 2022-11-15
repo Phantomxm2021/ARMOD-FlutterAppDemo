@@ -16,10 +16,17 @@ import flutter_armod_widget
         ]
         
         globalChannel?.invokeMethod("events#onTryAcquireInformation", arguments: playload, result:  {result in
-            callback((result as? String ?? "").cString(using: .utf8))
+            
+            
+            self.resultStr = result as? String ?? ""
+            self.gotResult = true
+            callback(self.resultStr.cString(using: .utf8))
         })
     }
- 
+    
+    
+    var gotResult:Bool = false;
+    var resultStr:String = ""
     
     public func throwException(_ message: String!, errorCode code: Int32) {
         let playload: Dictionary<String, Any> = [
@@ -90,5 +97,44 @@ import flutter_armod_widget
             "presetSize":presetSize
         ]
         globalChannel?.invokeMethod("events#onPackageSizeMoreThanPresetSize", arguments: playload)
+    }
+    
+    public func onMessageReceived(_ data: String!) {
+        let playload: Dictionary<String, String> = [
+            "data": data
+        ]
+        globalChannel?.invokeMethod("events#onMessageReceived", arguments: playload)
+    }
+    
+//    private func test(opTag:String){
+//        let playload: Dictionary<String, Any> = [
+//            "opTag": opTag
+//        ]
+//
+//        globalChannel?.invokeMethod("events#onTryAcquireInformation", arguments: playload, result:  {result in
+//            self.resultStr = result as? String ?? ""
+//            self.gotResult = true
+//        })
+//    }
+    
+    
+    func tryAcquireInfomationAsync(
+        _ completion: @escaping (String?, Error?) -> Void
+    )
+    {
+        DispatchQueue.global().async {
+            do {
+                while !self.gotResult{
+                    print(self.gotResult)
+                }
+                DispatchQueue.main.async {
+                    completion(self.resultStr, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }
     }
 }
